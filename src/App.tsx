@@ -252,7 +252,7 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
             {/* Brand */}
             <div>
-              <img src="/kuvu-logo.png" alt="KUVU Logo" className="h-20 md:h-28 object-contain mx-auto md:mx-0 mb-4" />
+              <img src="/kuvu-app-logo.png" alt="KUVU Logo" className="h-20 md:h-28 object-contain mx-auto md:mx-0 mb-4" />
               <p className="text-sm max-w-xs mx-auto md:mx-0">
                 La plataforma todo en uno para centros educativos que elimina la carga administrativa.
               </p>
