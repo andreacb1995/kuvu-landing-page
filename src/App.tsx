@@ -14,6 +14,7 @@ export default function App() {
       <header className="absolute top-0 left-0 right-0 z-20 pt-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Ajustamos el tamaño y usamos un margen negativo si la imagen tiene mucho espacio transparente */}
+          <img src="/kuvu-logo.png" alt="KUVU Logo" className="h-20 md:h-28 w-auto object-contain -ml-2" />
         </div>
       </header>
 
