@@ -14,7 +14,7 @@ export default function App() {
       <header className="absolute top-0 left-0 right-0 z-20 pt-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Ajustamos el tamaño y usamos un margen negativo si la imagen tiene mucho espacio transparente */}
-          <img src="/kuvu-logo.png" alt="KUVU Logo" className="h-20 md:h-28 w-auto object-contain -ml-2" />
+          <img src="/kuvu-app-logo.png" alt="KUVU Logo" className="h-20 md:h-28 w-auto object-contain -ml-2" />
         </div>
       </header>
 
@@ -66,7 +66,7 @@ export default function App() {
               {/* Resplandor suave de fondo para resaltar los dispositivos */}
               <div className="absolute inset-0 bg-blue-300 blur-3xl rounded-full opacity-20 transform scale-75"></div>
               <img 
-                src="/mockups.png" 
+                src="/mockups-colegios.png" 
                 alt="Plataforma KUVU en dispositivos" 
                 className="relative z-10 object-contain w-full max-w-md lg:max-w-none max-h-[400px] sm:max-h-[500px] lg:max-h-[600px] drop-shadow-2xl hover:scale-105 transition-transform duration-700 ease-out"
               />
