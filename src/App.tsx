@@ -3,9 +3,178 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { useState, useEffect, useRef, type FormEvent } from 'react';
 import { CheckCircle, Clock, MessageSquare, CreditCard, Star, ShieldCheck, TrendingUp, Users } from 'lucide-react';
 
 const WHATSAPP_LINK = "https://wa.me/34621038812?text=Hola%20Kuvu,%20nos%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20la%20plataforma%20para%20nuestro%20centro%20educativo.";
+
+const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID ?? 'TU_ID';
+const FORMSPREE_URL = `https://formspree.io/f/${FORMSPREE_ID}`;
+
+const inputClass =
+  'w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 placeholder:text-gray-400 shadow-sm transition-colors focus:border-[#1976d2] focus:outline-none focus:ring-2 focus:ring-[#1976d2]/35';
+
+function ContactSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  useEffect(() => {
+    if (status === 'success' || status === 'error') {
+      sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [status]);
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (FORMSPREE_ID === 'TU_ID') {
+      setStatus('error');
+      return;
+    }
+    const form = e.currentTarget;
+    setStatus('loading');
+    try {
+      const body = new FormData(form);
+      const res = await fetch(FORMSPREE_URL, {
+        method: 'POST',
+        body,
+        headers: { Accept: 'application/json' },
+      });
+      if (res.ok) {
+        setStatus('success');
+        form.reset();
+      } else {
+        const data = (await res.json().catch(() => null)) as { error?: string } | null;
+        console.error('Formspree:', data);
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+  }
+
+  return (
+    <section
+      ref={sectionRef}
+      id="contacto"
+      className="scroll-mt-6 py-20 bg-white border-t border-gray-100"
+    >
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">¿Hablamos?</h2>
+          <p className="text-lg text-gray-600 max-w-xl mx-auto">
+            Cuéntanos las necesidades de tu centro y te mostraremos cómo Kuvu puede ayudarte.
+          </p>
+        </div>
+
+        {status === 'success' ? (
+          <div
+            role="status"
+            aria-live="polite"
+            className="rounded-2xl border border-green-200 bg-green-50 px-6 py-8 text-center text-green-900"
+          >
+            <p className="text-lg font-semibold">¡Mensaje enviado con éxito!</p>
+            <p className="mt-2 text-sm text-green-800">Te responderemos lo antes posible.</p>
+            <button
+              type="button"
+              className="mt-6 text-sm font-medium text-[#1976d2] underline hover:text-blue-900"
+              onClick={() => setStatus('idle')}
+            >
+              Enviar otro mensaje
+            </button>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <div>
+              <label htmlFor="centro" className="mb-1.5 block text-sm font-medium text-gray-700">
+                Nombre del Centro Escolar / Empresa
+              </label>
+              <input
+                id="centro"
+                name="centro"
+                type="text"
+                required
+                autoComplete="organization"
+                className={inputClass}
+                placeholder="Ej. Colegio San José"
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-gray-700">
+                Email de contacto
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                autoComplete="email"
+                className={inputClass}
+                placeholder="tu@centro.edu"
+              />
+            </div>
+            <div>
+              <label htmlFor="tel" className="mb-1.5 block text-sm font-medium text-gray-700">
+                Teléfono
+              </label>
+              <input
+                id="tel"
+                name="tel"
+                type="tel"
+                autoComplete="tel"
+                className={inputClass}
+                placeholder="+34 600 000 000"
+              />
+            </div>
+            <div>
+              <label htmlFor="mensaje" className="mb-1.5 block text-sm font-medium text-gray-700">
+                Mensaje
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                rows={4}
+                className={`${inputClass} resize-y min-h-[120px]`}
+                placeholder="¿En qué podemos ayudarte?"
+              />
+            </div>
+            <div className="flex items-start gap-3 pt-1">
+              <input
+                id="privacidad"
+                name="privacidad"
+                type="checkbox"
+                required
+                className="mt-1 h-4 w-4 shrink-0 rounded border-gray-300 text-[#1976d2] focus:ring-[#1976d2]"
+              />
+              <label htmlFor="privacidad" className="text-sm text-gray-600 leading-snug">
+                He leído y acepto la{' '}
+                <a href="#" className="font-medium text-[#1976d2] underline hover:text-blue-800">
+                  política de privacidad
+                </a>
+                .
+              </label>
+            </div>
+
+            {status === 'error' && (
+              <p className="text-sm text-red-600" role="alert">
+                {FORMSPREE_ID === 'TU_ID'
+                  ? 'Configura VITE_FORMSPREE_ID en tu entorno con el ID de tu formulario Formspree.'
+                  : 'No se pudo enviar el mensaje. Inténtalo de nuevo en unos minutos.'}
+              </p>
+            )}
+
+            <button
+              type="submit"
+              disabled={status === 'loading'}
+              className="w-full sm:w-auto min-w-[200px] rounded-full bg-[#ffc107] px-8 py-4 text-center text-base font-bold text-gray-900 shadow-lg transition-all hover:-translate-y-0.5 hover:bg-yellow-400 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0"
+            >
+              {status === 'loading' ? 'Enviando…' : 'Enviar solicitud'}
+            </button>
+          </form>
+        )}
+      </div>
+    </section>
+  );
+}
 
 export default function App() {
   return (
@@ -246,6 +415,9 @@ export default function App() {
           </a>
         </div>
       </section>
+
+      <ContactSection />
+
       {/* Footer */}
       <footer className="bg-gray-950 text-gray-400 py-12 border-t border-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
