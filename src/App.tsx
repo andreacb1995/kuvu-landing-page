@@ -4,7 +4,18 @@
  */
 
 import { useState, useEffect, useRef, type FormEvent } from 'react';
-import { CheckCircle, Clock, MessageSquare, CreditCard, Star, ShieldCheck, TrendingUp, Users } from 'lucide-react';
+import {
+  CheckCircle,
+  Clock,
+  MessageSquare,
+  Star,
+  ShieldCheck,
+  TrendingUp,
+  Users,
+  GraduationCap,
+  UtensilsCrossed,
+  Smartphone,
+} from 'lucide-react';
 
 const WHATSAPP_LINK = "https://wa.me/34621038812?text=Hola%20Kuvu,%20nos%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20la%20plataforma%20para%20nuestro%20centro%20educativo.";
 
@@ -194,10 +205,10 @@ export default function App() {
             {/* Left Column */}
             <div className="space-y-8">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
-                TOMA EL CONTROL DE TU CENTRO CON KUVU
+                Software de Gestión Integral para Comedores, Caterings y Centros Educativos
               </h1>
               <p className="text-lg sm:text-xl text-blue-100 max-w-2xl">
-                La plataforma todo en uno para centros educativos que elimina la carga administrativa y simplifica la comunicación con las familias.
+                La plataforma todo en uno que elimina el caos administrativo y profesionaliza la comunicación entre familias, centros y cocina.
               </p>
               
               {/* Quick Benefits */}
@@ -225,7 +236,7 @@ export default function App() {
                   rel="noopener noreferrer"
                   className="block sm:inline-block w-full sm:w-auto text-center bg-[#ffc107] text-gray-900 font-bold text-lg sm:text-xl py-4 px-8 sm:px-10 rounded-full hover:bg-yellow-400 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
-                  SOLICITA TU DEMO GRATIS
+                  RESERVA TU SESIÓN DE DIAGNÓSTICO (15 MIN)
                 </a>
               </div>
             </div>
@@ -236,7 +247,7 @@ export default function App() {
               <div className="absolute inset-0 bg-blue-300 blur-3xl rounded-full opacity-20 transform scale-75"></div>
               <img 
                 src="/mockups-colegios.png" 
-                alt="Plataforma KUVU en dispositivos" 
+                alt="Kuvu: software de gestión para comedores escolares, caterings y centros educativos" 
                 className="relative z-10 object-contain w-full max-w-md lg:max-w-none max-h-[400px] sm:max-h-[500px] lg:max-h-[600px] drop-shadow-2xl hover:scale-105 transition-transform duration-700 ease-out"
               />
             </div>
@@ -271,8 +282,37 @@ export default function App() {
         </div>
       </section>
 
+      {/* Modelo de negocio: centros vs catering */}
+      <section className="py-20 bg-gray-50 border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12 md:mb-16 tracking-tight">
+            DISEÑADO PARA TU MODELO DE NEGOCIO
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+            <div className="bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+              <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
+                <GraduationCap className="w-7 h-7 text-[#1976d2]" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Centros Educativos</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Toma el control total de tu centro. Gestiona inscripciones, bajas, alergias y facturación de forma autónoma, sin importar quién sea tu proveedor de catering.
+              </p>
+            </div>
+            <div className="bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+              <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
+                <UtensilsCrossed className="w-7 h-7 text-[#1976d2]" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Empresas de Catering</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Digitaliza la relación con tus clientes. Recibe previsiones de menús exactas de todos tus colegios, reduce el desperdicio y ofrece menús digitales a las familias.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Benefits Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -289,9 +329,9 @@ export default function App() {
               <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
                 <Clock className="w-7 h-7 text-[#1976d2]" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Adiós al caos de las listas manuales</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Administración y Facturación</h3>
               <p className="text-gray-600 leading-relaxed">
-                Elimina las horas perdidas cruzando asistencias, correos y recibos. KUVU centraliza todo en un clic.
+                Genera facturas PDF basadas en el uso real. Controla pagos de comedor, madrugadores y extraescolares sin errores manuales.
               </p>
             </div>
 
@@ -300,20 +340,20 @@ export default function App() {
               <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
                 <MessageSquare className="w-7 h-7 text-[#1976d2]" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Comunicación en tiempo real sin errores</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Sincronización Centro-Cocina</h3>
               <p className="text-gray-600 leading-relaxed">
-                Los cambios de última hora de las familias llegan directamente a la cocina y a los monitores. Sin malentendidos, sin fallos.
+                Los cambios de las familias llegan en tiempo real al catering. Previsión precisa para que nunca falte ni sobre comida.
               </p>
             </div>
 
             {/* Benefit 3 */}
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
               <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
-                <CreditCard className="w-7 h-7 text-[#1976d2]" />
+                <Smartphone className="w-7 h-7 text-[#1976d2]" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Facturación y cobros sin fricción</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">App para Familias</h3>
               <p className="text-gray-600 leading-relaxed">
-                Genera facturas individuales automáticamente y controla los pagos de servicios ocasionales sin esfuerzo bancario.
+                Ofrece tranquilidad y agilidad. Los padres gestionan ausencias, consultan menús y reciben avisos desde su móvil.
               </p>
             </div>
           </div>
@@ -325,7 +365,7 @@ export default function App() {
               rel="noopener noreferrer"
               className="inline-block bg-[#ffc107] text-gray-900 font-bold text-lg py-4 px-8 rounded-full hover:bg-yellow-400 transition-colors shadow-md hover:shadow-lg transform hover:-translate-y-1"
             >
-              SOLICITA TU DEMO GRATIS
+              RESERVA TU SESIÓN DE DIAGNÓSTICO (15 MIN)
             </a>
           </div>
         </div>
@@ -403,7 +443,7 @@ export default function App() {
             ¿Listo para dejar atrás el caos administrativo?
           </h2>
           <p className="text-lg sm:text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
-            Da el paso definitivo para automatizar la gestión de tu centro y mejorar la comunicación con las familias.
+            En solo 15 minutos te mostraremos cómo Kuvu puede ayudarte a recuperar el control de tu tiempo y profesionalizar tu gestión.
           </p>
           <a 
             href={WHATSAPP_LINK} 
@@ -411,7 +451,7 @@ export default function App() {
             rel="noopener noreferrer"
             className="block sm:inline-block w-full sm:w-auto text-center bg-[#ffc107] text-gray-900 font-bold text-lg sm:text-xl py-4 sm:py-5 px-8 sm:px-10 rounded-full hover:bg-yellow-400 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
-            SOLICITA TU DEMO GRATIS
+            RESERVA TU SESIÓN DE DIAGNÓSTICO (15 MIN)
           </a>
         </div>
       </section>
