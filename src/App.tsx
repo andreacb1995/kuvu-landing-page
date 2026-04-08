@@ -77,7 +77,7 @@ function ContactSection() {
     <section
       ref={sectionRef}
       id="contacto"
-      className="scroll-mt-6 py-24 bg-white border-t border-gray-100"
+      className="scroll-mt-6 py-16 md:py-24 bg-white border-t border-gray-100"
     >
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
@@ -220,7 +220,7 @@ export default function App() {
       <header className="absolute top-0 left-0 right-0 z-20 pt-3 sm:pt-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Ajustamos el tamaño y usamos un margen negativo si la imagen tiene mucho espacio transparente */}
-          <img src="/kuvu-app-logo.png" alt="KUVU Logo" className="h-16 sm:h-20 md:h-28 w-auto max-w-full object-contain -ml-2 mb-10" />
+          <img src="/kuvu-app-logo.png" alt="KUVU Logo" className="h-16 sm:h-20 md:h-28 w-auto max-w-full object-contain mb-10 sm:-ml-2" />
         </div>
       </header>
 
@@ -231,12 +231,12 @@ export default function App() {
             {/* Columna contenido: orden móvil = título → subtítulo → lista → CTA (la imagen va después en el DOM) */}
             <div className="order-1 flex min-w-0 flex-col">
               <div className="flex flex-col gap-8 sm:gap-10 lg:gap-12">
-                <div className="w-full min-w-0 max-w-[min(100%,23rem)] sm:max-w-none">
+                <div className="w-full min-w-0">
                   <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tighter text-balance leading-tight sm:leading-tight">
                     Software de Gestión Integral para Comedores, Caterings y Centros Educativos
                   </h1>
                 </div>
-                <p className="text-base sm:text-xl text-blue-100 max-w-xl leading-relaxed">
+                <p className="text-base sm:text-xl text-blue-100 max-w-xl leading-normal md:leading-relaxed">
                   La plataforma todo en uno que elimina el caos administrativo y profesionaliza la comunicación entre familias, centros y cocina.
                 </p>
                 
@@ -281,25 +281,25 @@ export default function App() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-24 bg-white border-t border-gray-100">
+      <section className="py-16 md:py-24 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Convierte el caos administrativo en un proceso automatizado
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-600 leading-normal md:leading-relaxed">
               KUVU no es solo una herramienta, es tu aliado para recuperar el tiempo y el control de tu centro.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-12">
             {/* Benefit 1 */}
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
               <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6">
                 <Clock className="w-7 h-7 text-[#1976d2]" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Administración</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-normal md:leading-relaxed">
                 Genera facturas PDF basadas en el uso real. Controla pagos de comedor y madrugadores sin errores manuales.
               </p>
             </div>
@@ -310,7 +310,7 @@ export default function App() {
                 <MessageSquare className="w-7 h-7 text-[#1976d2]" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Sincronización</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-normal md:leading-relaxed">
               Previsión precisa para cocina en tiempo real. Evita el desperdicio de comida, sea cual sea tu modelo de gestión.
               </p>
             </div>
@@ -321,7 +321,7 @@ export default function App() {
                 <Smartphone className="w-7 h-7 text-[#1976d2]" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">App Familias</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-normal md:leading-relaxed">
                 Tranquilidad y agilidad. Los padres gestionan ausencias, consultan menús y reciben avisos desde su móvil.
               </p>
             </div>
@@ -330,18 +330,18 @@ export default function App() {
       </section>
 
       {/* Diferenciación: colegio vs catering */}
-      <section className="py-24 bg-gray-50 border-t border-gray-100">
+      <section className="py-16 md:py-24 bg-gray-50 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 text-center mb-10 md:mb-12 tracking-tight">
             ¿Eres Colegio o Catering?
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 max-w-5xl mx-auto">
             <div className="bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
               <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6">
                 <GraduationCap className="w-7 h-7 text-[#1976d2]" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Colegios</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-normal md:leading-relaxed">
               Toma el control total de tu gestión. Centraliza inscripciones, bajas y facturación de forma independiente, trabajes con el catering que trabajes o tengas cocina propia.
               </p>
             </div>
@@ -350,7 +350,7 @@ export default function App() {
                 <UtensilsCrossed className="w-7 h-7 text-[#1976d2]" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Caterings</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-normal md:leading-relaxed">
                 Digitaliza la relación con tus clientes. Recibe previsiones de menús exactas, reduce el desperdicio y ofrece menús digitales a las familias.
               </p>
             </div>
@@ -359,7 +359,7 @@ export default function App() {
       </section>
 
       {/* Por qué confiar en Kuvu */}
-      <section className="py-24 bg-gray-50 border-t border-gray-100" aria-labelledby="confianza-heading">
+      <section className="py-16 md:py-24 bg-gray-50 border-t border-gray-100" aria-labelledby="confianza-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2
             id="confianza-heading"
@@ -367,31 +367,31 @@ export default function App() {
           >
             Por qué confiar en Kuvu
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 items-stretch">
-            <article className="flex h-full min-h-0 flex-col rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-shadow hover:shadow-md">
-              <div className="mb-6 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-50">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 lg:gap-12 items-stretch">
+            <article className="flex h-full min-h-0 flex-col rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-shadow hover:shadow-md max-sm:items-center max-sm:text-center md:items-stretch md:text-left">
+              <div className="mb-6 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-50 max-sm:mx-auto">
                 <Sparkles className="h-[2.1rem] w-[2.1rem] shrink-0 text-[#1976d2]" aria-hidden />
               </div>
               <h3 className="mb-3 text-xl font-bold text-gray-900">Migración sin esfuerzo</h3>
-              <p className="flex-1 text-gray-600 leading-relaxed">
+              <p className="flex-1 text-gray-600 leading-normal md:leading-relaxed">
                 Nosotros hacemos el trabajo sucio. Importamos tus listados de alumnos y configuramos tus menús para que empieces a trabajar sin mover un dedo.
               </p>
             </article>
-            <article className="flex h-full min-h-0 flex-col rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-shadow hover:shadow-md">
-              <div className="mb-6 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-50">
+            <article className="flex h-full min-h-0 flex-col rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-shadow hover:shadow-md max-sm:items-center max-sm:text-center md:items-stretch md:text-left">
+              <div className="mb-6 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-50 max-sm:mx-auto">
                 <MessageSquare className="h-[2.1rem] w-[2.1rem] shrink-0 text-[#1976d2]" aria-hidden />
               </div>
               <h3 className="mb-3 text-xl font-bold text-gray-900">Soporte Humano Directo</h3>
-              <p className="flex-1 text-gray-600 leading-relaxed">
+              <p className="flex-1 text-gray-600 leading-normal md:leading-relaxed">
                 Olvídate de tickets fríos o bots. Tienes contacto directo con nosotros por WhatsApp o teléfono para resolver cualquier duda al instante.
               </p>
             </article>
-            <article className="flex h-full min-h-0 flex-col rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-shadow hover:shadow-md">
-              <div className="mb-6 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-50">
+            <article className="flex h-full min-h-0 flex-col rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-shadow hover:shadow-md max-sm:items-center max-sm:text-center md:items-stretch md:text-left">
+              <div className="mb-6 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-50 max-sm:mx-auto">
                 <ShieldCheck className="h-[2.1rem] w-[2.1rem] shrink-0 text-[#1976d2]" aria-hidden />
               </div>
               <h3 className="mb-3 text-xl font-bold text-gray-900">Control y Seguridad Total</h3>
-              <p className="flex-1 text-gray-600 leading-relaxed">
+              <p className="flex-1 text-gray-600 leading-normal md:leading-relaxed">
                 Tus datos están cifrados y protegidos bajo la estricta normativa escolar. Gestiona con la tranquilidad de que tu centro cumple con toda la legalidad.
               </p>
             </article>
@@ -400,12 +400,12 @@ export default function App() {
       </section>
 
       {/* Franja CTA — fondo azul oscuro */}
-      <section className="border-y border-blue-900/30 bg-gradient-to-b from-[#1565c0] to-[#0d47a1] py-24 sm:py-28">
+      <section className="border-y border-blue-900/30 bg-gradient-to-b from-[#1565c0] to-[#0d47a1] py-16 md:py-24">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 tracking-tight text-white">
             ¿Listo para dejar atrás el caos administrativo?
           </h2>
-          <p className="mb-8 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed text-blue-100">
+          <p className="mb-8 max-w-2xl mx-auto text-base sm:text-lg leading-normal md:leading-relaxed text-blue-100">
             En solo 15 minutos te mostraremos cómo Kuvu puede ayudarte a recuperar el control de tu tiempo y profesionalizar la gestión de tu centro o catering.
           </p>
           <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className={`${ctaPrimaryOnDarkStripClass} w-full sm:inline-flex sm:w-auto`}>
@@ -417,13 +417,13 @@ export default function App() {
       <ContactSection />
 
       {/* Footer */}
-      <footer className="bg-gray-950 text-gray-400 py-24 border-t border-gray-900">
+      <footer className="bg-gray-950 text-gray-400 py-16 md:py-24 border-t border-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-14 lg:gap-16 text-center md:text-left">
             {/* Brand */}
             <div>
               <img src="/kuvu-app-logo.png" alt="KUVU Logo" className="h-20 md:h-28 w-auto max-w-full object-contain mx-auto md:mx-0 mb-4" />
-              <p className="text-sm text-gray-400 max-w-xs mx-auto md:mx-0 leading-relaxed">
+              <p className="text-sm text-gray-400 max-w-xs mx-auto md:mx-0 leading-normal md:leading-relaxed">
                 La plataforma integral para Colegios y Caterings que elimina el caos administrativo.
               </p>
             </div>
