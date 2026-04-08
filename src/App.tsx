@@ -15,11 +15,11 @@ import {
 
 const WHATSAPP_LINK = "https://wa.me/34621038812?text=Hola%20Kuvu,%20nos%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20la%20plataforma%20para%20nuestro%20centro%20educativo.";
 
-/** CTA amarillo premium: doble contorno (ring ámbar + offset), hero sobre azul #1976d2 */
+/** CTA amarillo premium — firma marca: ring-4 + ring-offset-2 (offset azul #1976d2 en hero) */
 const ctaPrimaryClass =
   'inline-flex items-center justify-center text-center bg-[#ffc107] text-gray-900 font-extrabold text-base sm:text-lg uppercase tracking-wide px-8 sm:px-10 py-4 sm:py-5 rounded-2xl border border-gray-900/10 shadow-xl ring-4 ring-amber-300/70 ring-offset-2 ring-offset-[#1976d2] transition-all duration-200 hover:bg-amber-400 hover:shadow-2xl hover:ring-amber-200/80';
 
-/** Misma apariencia con ring-offset blanco (formulario y franja CTA sobre fondos claros) */
+/** Misma firma: ring-4 + ring-offset-2 (offset blanco en formulario / franjas claras) */
 const ctaPrimaryOnLightClass =
   'inline-flex items-center justify-center text-center bg-[#ffc107] text-gray-900 font-extrabold text-base sm:text-lg uppercase tracking-wide px-8 sm:px-10 py-4 sm:py-5 rounded-2xl border border-gray-900/10 shadow-xl ring-4 ring-amber-300/70 ring-offset-2 ring-offset-white transition-all duration-200 hover:bg-amber-400 hover:shadow-2xl hover:ring-amber-200/80';
 
@@ -27,7 +27,7 @@ const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID ?? 'TU_ID';
 const FORMSPREE_URL = `https://formspree.io/f/${FORMSPREE_ID}`;
 
 const inputClass =
-  'w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-base text-gray-900 placeholder:text-gray-500 shadow-sm transition-colors focus:border-[#1976d2] focus:outline-none focus:ring-2 focus:ring-[#1976d2]/35';
+  'w-full min-w-0 max-w-full rounded-xl border border-gray-200 bg-white px-4 py-3.5 text-base text-gray-900 placeholder:text-gray-500 shadow-sm transition-[color,box-shadow,border-color] duration-200 focus:border-[#1976d2] focus:outline-none focus:ring-2 focus:ring-[#1976d2]/25 focus:ring-offset-2 focus:ring-offset-white';
 
 function ContactSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -71,7 +71,7 @@ function ContactSection() {
     <section
       ref={sectionRef}
       id="contacto"
-      className="scroll-mt-6 py-20 bg-white border-t border-gray-100"
+      className="scroll-mt-6 py-24 bg-white border-t border-gray-100"
     >
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
@@ -91,14 +91,14 @@ function ContactSection() {
             <p className="mt-2 text-sm text-green-800">Te responderemos lo antes posible.</p>
             <button
               type="button"
-              className="mt-6 text-sm font-medium text-[#1976d2] underline hover:text-blue-900"
+              className={`${ctaPrimaryOnLightClass} mt-8 w-full max-w-full sm:max-w-md sm:mx-auto`}
               onClick={() => setStatus('idle')}
             >
               Enviar otro mensaje
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="w-full space-y-5">
             <div>
               <label htmlFor="centro" className="mb-1.5 block text-sm font-medium text-gray-700">
                 Nombre del Centro o Empresa de Catering
@@ -177,11 +177,12 @@ function ContactSection() {
               </p>
             )}
 
-            <div className="flex justify-center pt-2">
+            <div className="flex justify-center pt-2 w-full">
+              {/* Misma firma que Hero: rounded-2xl + ring-4 + ring-offset-2 (ctaPrimaryOnLightClass) */}
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className={`${ctaPrimaryOnLightClass} w-full max-w-xl disabled:cursor-not-allowed disabled:opacity-65 disabled:hover:bg-[#ffc107] disabled:hover:shadow-xl disabled:hover:ring-amber-300/70`}
+                className={`${ctaPrimaryOnLightClass} w-full max-w-full sm:max-w-xl sm:mx-auto disabled:cursor-not-allowed disabled:opacity-65 disabled:hover:bg-[#ffc107] disabled:hover:shadow-xl disabled:hover:ring-amber-300/70`}
               >
                 {status === 'loading' ? 'ENVIANDO…' : 'ENVIAR SOLICITUD DE DIAGNÓSTICO'}
               </button>
@@ -200,56 +201,60 @@ export default function App() {
       <header className="absolute top-0 left-0 right-0 z-20 pt-3 sm:pt-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Ajustamos el tamaño y usamos un margen negativo si la imagen tiene mucho espacio transparente */}
-          <img src="/kuvu-app-logo.png" alt="KUVU Logo" className="h-16 sm:h-20 md:h-28 w-auto object-contain -ml-2" />
+          <img src="/kuvu-app-logo.png" alt="KUVU Logo" className="h-16 sm:h-20 md:h-28 w-auto max-w-full object-contain -ml-2 mb-10" />
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="bg-[#1976d2] text-white pt-24 pb-10 sm:pt-32 sm:pb-14 lg:pt-44 lg:pb-24 relative">
+      <section className="bg-[#1976d2] text-white pt-32 pb-8 sm:pt-36 sm:pb-14 lg:pt-44 lg:pb-24 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-            {/* Left Column */}
-            <div className="space-y-5 sm:space-y-7 lg:space-y-8">
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
-                Software de Gestión Integral para Comedores, Caterings y Centros Educativos
-              </h1>
-              <p className="text-base sm:text-xl text-blue-100 max-w-2xl">
-                La plataforma todo en uno que elimina el caos administrativo y profesionaliza la comunicación entre familias, centros y cocina.
-              </p>
-              
-              {/* Quick Benefits */}
-              <div className="pt-1 sm:pt-2">
-                <ul className="space-y-3 sm:space-y-4">
-                  <li className="flex items-center space-x-3">
-                    <CheckCircle className="w-6 h-6 text-[#ffc107] flex-shrink-0" />
-                    <span className="text-blue-50 font-medium text-base sm:text-lg">Adiós al caos de las listas de Excel y el papel</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <CheckCircle className="w-6 h-6 text-[#ffc107] flex-shrink-0" />
-                    <span className="text-blue-50 font-medium text-base sm:text-lg">Comunicación en tiempo real sin errores</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <CheckCircle className="w-6 h-6 text-[#ffc107] flex-shrink-0" />
-                    <span className="text-blue-50 font-medium text-base sm:text-lg">Facturación y cobros sin fricción</span>
-                  </li>
-                </ul>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 lg:gap-12 items-center">
+            {/* Columna contenido: orden móvil = título → subtítulo → lista → CTA (la imagen va después en el DOM) */}
+            <div className="order-1 flex min-w-0 flex-col">
+              <div className="flex flex-col gap-8 sm:gap-10 lg:gap-12">
+                <div className="w-full min-w-0 max-w-[min(100%,23rem)] sm:max-w-none">
+                  <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tighter text-balance leading-[1.1] sm:leading-tight">
+                    Software de Gestión Integral para Comedores, Caterings y Centros Educativos
+                  </h1>
+                </div>
+                <p className="text-base sm:text-xl text-blue-100 max-w-xl leading-relaxed">
+                  La plataforma todo en uno que elimina el caos administrativo y profesionaliza la comunicación entre familias, centros y cocina.
+                </p>
+                
+                {/* Quick Benefits */}
+                <div>
+                  <ul className="space-y-4 sm:space-y-5">
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="w-6 h-6 text-[#ffc107] flex-shrink-0" />
+                      <span className="text-blue-50 font-medium text-base sm:text-lg">Adiós al caos de las listas de Excel y el papel</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="w-6 h-6 text-[#ffc107] flex-shrink-0" />
+                      <span className="text-blue-50 font-medium text-base sm:text-lg">Comunicación en tiempo real sin errores</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <CheckCircle className="w-6 h-6 text-[#ffc107] flex-shrink-0" />
+                      <span className="text-blue-50 font-medium text-base sm:text-lg">Facturación automática basada en el uso real</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
 
-              <div className="pt-2 sm:pt-4">
+              <div className="mt-8 sm:mt-10">
                 <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className={`${ctaPrimaryClass} w-full sm:w-auto`}>
                   RESERVA TU SESIÓN DE DIAGNÓSTICO (15 MIN)
                 </a>
               </div>
             </div>
             
-            {/* Right Column (Image/Illustration) */}
-            <div className="relative mt-8 sm:mt-12 lg:mt-0 flex justify-center items-center">
+            {/* Imagen: siempre después del bloque de texto en móvil (order-2) */}
+            <div className="order-2 relative mt-6 sm:mt-12 lg:mt-0 flex justify-center items-center w-full min-w-0">
               {/* Resplandor suave de fondo para resaltar los dispositivos */}
               <div className="absolute inset-0 bg-blue-300 blur-3xl rounded-full opacity-20 transform scale-75"></div>
               <img 
                 src="/mockups-colegios.png" 
                 alt="Kuvu: software de gestión para comedores escolares, caterings y centros educativos" 
-                className="relative z-10 object-contain w-full max-w-md lg:max-w-none max-h-[400px] sm:max-h-[500px] lg:max-h-[600px] drop-shadow-2xl hover:scale-105 transition-transform duration-700 ease-out"
+                className="relative z-10 h-auto max-w-full w-full object-contain max-w-md lg:max-w-none max-h-[min(400px,70vh)] sm:max-h-[500px] lg:max-h-[600px] drop-shadow-2xl hover:scale-105 transition-transform duration-700 ease-out"
               />
             </div>
           </div>
@@ -257,12 +262,12 @@ export default function App() {
       </section>
 
       {/* Diferenciación: colegio vs catering */}
-      <section className="py-20 bg-gray-50 border-t border-gray-100">
+      <section className="py-24 bg-gray-50 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 text-center mb-10 md:mb-12 tracking-tight">
             ¿Eres Colegio o Catering?
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
             <div className="bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
               <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
                 <GraduationCap className="w-7 h-7 text-[#1976d2]" />
@@ -286,7 +291,7 @@ export default function App() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-white border-t border-gray-100">
+      <section className="py-24 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -297,7 +302,7 @@ export default function App() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12">
             {/* Benefit 1 */}
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
               <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
@@ -335,7 +340,7 @@ export default function App() {
       </section>
 
       {/* CTA destacada antes del formulario */}
-      <section className="py-16 sm:py-20 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100 border-y border-amber-200/80">
+      <section className="py-24 sm:py-28 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100 border-y border-amber-200/80">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-gray-900 text-2xl sm:text-3xl md:text-4xl font-bold mb-4 tracking-tight">
             ¿Listo para dejar atrás el caos administrativo?
@@ -343,7 +348,7 @@ export default function App() {
           <p className="text-gray-700 text-base sm:text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
             En solo 15 minutos te mostraremos cómo Kuvu puede ayudarte a recuperar el control de tu tiempo y profesionalizar la gestión de tu centro o catering.
           </p>
-          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className={ctaPrimaryOnLightClass}>
+          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className={`${ctaPrimaryOnLightClass} w-full sm:inline-flex sm:w-auto`}>
             RESERVA TU SESIÓN DE DIAGNÓSTICO (15 MIN)
           </a>
         </div>
@@ -352,13 +357,13 @@ export default function App() {
       <ContactSection />
 
       {/* Footer */}
-      <footer className="bg-gray-950 text-gray-500 py-12 border-t border-gray-900">
+      <footer className="bg-gray-950 text-gray-400 py-24 border-t border-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-14 lg:gap-16 text-center md:text-left">
             {/* Brand */}
             <div>
-              <img src="/kuvu-app-logo.png" alt="KUVU Logo" className="h-20 md:h-28 object-contain mx-auto md:mx-0 mb-4" />
-              <p className="text-sm max-w-xs mx-auto md:mx-0">
+              <img src="/kuvu-app-logo.png" alt="KUVU Logo" className="h-20 md:h-28 w-auto max-w-full object-contain mx-auto md:mx-0 mb-4" />
+              <p className="text-sm text-gray-400 max-w-xs mx-auto md:mx-0 leading-relaxed">
                 La plataforma integral para Colegios y Caterings que elimina el caos administrativo.
               </p>
             </div>
@@ -366,12 +371,12 @@ export default function App() {
             {/* Contact */}
             <div className="md:pt-14">
               <h4 className="text-white font-semibold mb-4 uppercase tracking-wider text-sm">Contacto</h4>
-              <ul className="space-y-2 text-sm">
+              <ul className="space-y-3 text-sm">
                 <li>
-                  <a href="mailto:hola@kuvuapp.com" className="hover:text-white transition-colors">hola@kuvuapp.com</a>
+                  <a href="mailto:hola@kuvuapp.com" className="text-gray-400 hover:text-white transition-colors">hola@kuvuapp.com</a>
                 </li>
                 <li>
-                  <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                  <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                     +34 621 03 88 12
                   </a>
                 </li>
@@ -381,15 +386,15 @@ export default function App() {
             {/* Legal */}
             <div className="md:text-right md:pt-14">
               <h4 className="text-white font-semibold mb-4 uppercase tracking-wider text-sm">Legal</h4>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white transition-colors">Aviso Legal</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Política de Privacidad</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Política de Cookies</a></li>
+              <ul className="space-y-3 text-sm">
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Aviso Legal</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Política de Privacidad</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Política de Cookies</a></li>
               </ul>
             </div>
           </div>
           
-          <div className="border-t border-gray-800 mt-12 pt-8 text-sm text-center flex flex-col md:flex-row justify-between items-center">
+          <div className="border-t border-gray-800 mt-16 pt-10 text-sm text-center text-gray-500 flex flex-col md:flex-row justify-between items-center gap-4">
             <p>&copy; {new Date().getFullYear()} KUVU. Todos los derechos reservados.</p>
           </div>
         </div>
