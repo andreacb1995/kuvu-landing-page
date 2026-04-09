@@ -1,1 +1,32 @@
 @import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /**
+   * Navbar /gracias: cristal (glassmorphism), tono corporativo oscuro-azulado.
+   */
+  .navbar--dark {
+    background-color: rgba(28, 40, 80, 0.92) !important;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+  }
+
+  /** Sin “pastilla” blanca: logo sobre navbar con PNG transparente. */
+  .kuvu-logo-container {
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /** Brillo muy suave en logo claro sobre navbar glass (filtro en imagen). */
+  .kuvu-logo-container img {
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.28))
+      drop-shadow(0 0 20px rgba(255, 255, 255, 0.12));
+  }
+}
