@@ -421,7 +421,7 @@ export default function Landing() {
             ¿Listo para dejar atrás el caos administrativo?
           </h2>
           <p className="mb-8 max-w-2xl mx-auto text-base sm:text-lg leading-normal md:leading-relaxed text-blue-100">
-            En solo 15 minutos te mostraremos cómo Kuvu puede ayudarte a recuperar el control de tu tiempo y
+            Te mostraremos cómo Kuvu puede ayudarte a recuperar el control de tu tiempo y
             profesionalizar la gestión de tu centro o catering.
           </p>
           <a
