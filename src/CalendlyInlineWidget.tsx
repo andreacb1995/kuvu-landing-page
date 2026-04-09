@@ -3,7 +3,7 @@
  */
 
 import { useEffect, useRef } from 'react';
-import { getCalendlyInlineWidgetOptions, loadCalendlyScript } from './calendlyEmbed';
+import { initCalendlyInlineWidget, loadCalendlyScript } from './calendlyEmbed';
 
 type Props = {
   calendlyUrl: string;
@@ -24,11 +24,10 @@ export function CalendlyInlineWidget({ calendlyUrl, active }: Props) {
         await loadCalendlyScript();
         if (cancelled || !parentRef.current) return;
 
-        const calendly = window.Calendly;
-        if (!calendly?.initInlineWidget) return;
+        if (!window.Calendly?.initInlineWidget) return;
 
         parent.innerHTML = '';
-        calendly.initInlineWidget(getCalendlyInlineWidgetOptions(parent, calendlyUrl));
+        initCalendlyInlineWidget(parent, calendlyUrl);
       } catch (e) {
         console.error('[Calendly]', e);
       }

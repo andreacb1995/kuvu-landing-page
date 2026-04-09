@@ -87,7 +87,7 @@ export default function ThankYou() {
   }
 
   return (
-    <div className="min-h-screen w-full bg-[#1976d2] font-sans text-white">
+    <div className="min-h-screen min-h-[100dvh] w-full bg-[#1976d2] font-sans text-white">
       <main className="mx-auto flex w-full max-w-[1100px] flex-col items-center pt-4 pb-0">
         <article className="w-full max-w-[1100px]">
           <div className="flex w-full justify-start px-6 pt-1 pb-1 sm:px-10 md:px-16">

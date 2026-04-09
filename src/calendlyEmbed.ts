@@ -62,3 +62,23 @@ export function getCalendlyInlineWidgetOptions(parentElement: HTMLElement, baseU
     utm: {} as Record<string, unknown>,
   };
 }
+
+/**
+ * Inicializa el widget y, en un doble rAF, evita que el foco quede en el iframe al montar
+ * (best effort: reduce scroll automático hacia el embed antes de interacción del usuario).
+ */
+export function initCalendlyInlineWidget(parentElement: HTMLElement, baseUrl: string): void {
+  const calendly = typeof window !== 'undefined' ? window.Calendly : undefined;
+  if (!calendly?.initInlineWidget) return;
+
+  calendly.initInlineWidget(getCalendlyInlineWidgetOptions(parentElement, baseUrl));
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const active = document.activeElement;
+      if (active instanceof HTMLIFrameElement && parentElement.contains(active)) {
+        active.blur();
+      }
+    });
+  });
+}
