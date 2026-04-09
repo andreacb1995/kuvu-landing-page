@@ -271,7 +271,7 @@ export default function Landing() {
 
               <div className="mt-8 sm:mt-10">
                 <a href="#contacto" className={`${ctaPrimaryClass} normal-case w-full sm:w-auto`}>
-                  Reservar sesión gratuita
+                  Solicitar información y sesión
                 </a>
               </div>
             </div>
@@ -428,7 +428,7 @@ export default function Landing() {
             href="#contacto"
             className={`${ctaPrimaryOnDarkStripClass} normal-case w-full sm:inline-flex sm:w-auto`}
           >
-            Reservar sesión gratuita
+            Solicitar información y sesión
           </a>
         </div>
       </section>

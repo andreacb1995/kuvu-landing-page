@@ -1,12 +1,9 @@
 /**
- * Contenedor mínimo para `initInlineWidget` (misma idea que el snippet oficial de Calendly).
+ * Contenedor para `initInlineWidget`: altura fija 700px (estándar móvil) sin min-h Tailwind.
  */
 
 import { useEffect, useRef } from 'react';
 import { getCalendlyInlineWidgetOptions, loadCalendlyScript } from './calendlyEmbed';
-
-/** Debe coincidir con `height` del contenedor (placeholder en ThankYou). */
-export const CALENDLY_EMBED_HEIGHT_PX = 700;
 
 type Props = {
   calendlyUrl: string;
@@ -43,10 +40,5 @@ export function CalendlyInlineWidget({ calendlyUrl, active }: Props) {
     };
   }, [active, calendlyUrl]);
 
-  return (
-    <div
-      ref={parentRef}
-      style={{ height: '700px', minWidth: '320px' }}
-    />
-  );
+  return <div ref={parentRef} style={{ minWidth: '320px', height: '700px' }} />;
 }

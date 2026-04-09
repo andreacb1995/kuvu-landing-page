@@ -6,11 +6,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { MessageCircle } from 'lucide-react';
-import { CalendlyInlineWidget, CALENDLY_EMBED_HEIGHT_PX } from './CalendlyInlineWidget';
+import { CalendlyInlineWidget } from './CalendlyInlineWidget';
+import { appendCalendlyEmbedQueryParams } from './calendlyEmbed';
 import { DEFAULT_CALENDLY_URL, LOGO_BLANCO_URL, THANK_YOU_SESSION_KEY, WHATSAPP_LINK } from './constants';
 import { trackFormSubmittedPage, trackLead, trackSchedule, trackWhatsAppContact } from './metaPixel';
 
-const CALENDLY_URL = import.meta.env.VITE_CALENDLY_URL?.trim() || DEFAULT_CALENDLY_URL;
+const CALENDLY_URL_RAW = import.meta.env.VITE_CALENDLY_URL?.trim() || DEFAULT_CALENDLY_URL;
+/** Siempre con hide_landing_page_details y hide_gdpr_banner (también aplicados en initInlineWidget). */
+const CALENDLY_URL = appendCalendlyEmbedQueryParams(CALENDLY_URL_RAW);
 
 export default function ThankYou() {
   const navigate = useNavigate();
@@ -99,16 +102,11 @@ export default function ThankYou() {
 
           <div className="flex flex-col items-center px-6 pb-0 text-center sm:px-10 md:px-16">
             <h1 className="mt-0 text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              ¡Todo listo!
+              ¡Solicitud recibida!
             </h1>
-
-            <p className="mx-auto mt-3 max-w-2xl text-pretty text-center text-base leading-relaxed text-white sm:text-lg">
-              Tu solicitud ha llegado correctamente. Estamos deseando ayudarte a llevar la gestión de tu comedor al
-              siguiente nivel.
-            </p>
-
-            <p className="mx-auto mt-3 max-w-2xl text-pretty text-center text-sm leading-relaxed text-white/95 mb-4">
-              Si lo deseas, puedes elegir ahora un hueco para nuestra primera toma de contacto (Paso opcional):
+            <p className="mx-auto mt-4 max-w-2xl text-pretty text-center text-base leading-relaxed text-white/95 sm:text-lg mb-4">
+              El equipo de Kuvu se pondrá en contacto contigo pronto para resolver tus dudas. Si prefieres asegurar un
+              hueco ya mismo, elige el momento que mejor te encaje para una demo con nuestra especialista:
             </p>
           </div>
 
@@ -116,13 +114,13 @@ export default function ThankYou() {
             ref={calendlySectionRef}
             className="mt-2 w-full min-w-0 px-6 pb-10 sm:px-10 md:px-16"
           >
-            <div className="rounded-3xl bg-white p-0 shadow-xl">
+            <div className="overflow-hidden rounded-3xl bg-white p-0 shadow-xl">
               {loadCalendlyIframe ? (
                 <CalendlyInlineWidget calendlyUrl={CALENDLY_URL} active />
               ) : (
                 <div
                   className="flex w-full flex-col items-center justify-center gap-3 bg-[#fafafa] p-0 text-sm text-gray-500"
-                  style={{ minHeight: CALENDLY_EMBED_HEIGHT_PX }}
+                  style={{ minWidth: '320px', height: '700px' }}
                   aria-hidden
                 >
                   <div className="h-8 w-8 animate-pulse rounded-full bg-gray-200" />
