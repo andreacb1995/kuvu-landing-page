@@ -29,34 +29,46 @@ export default function PoliticaCookiesPage() {
       </section>
 
       <section className="space-y-3">
-        <h2>2. Scripts y servicios cargados en el sitio (según el código actual)</h2>
+        <h2>2. Consentimiento y carga de scripts de analítica</h2>
         <p>
-          En el documento HTML principal <code className="rounded bg-gray-100 px-1 py-0.5 text-xs">index.html</code> se
-          cargan los siguientes scripts de terceros en todas las páginas de la aplicación:
+          Los scripts de <strong>Meta Pixel</strong> y <strong>LinkedIn Insight Tag</strong> <strong>no</strong> se
+          incluyen en la carga inicial del sitio. Solo se insertan dinámicamente en el navegador si usted hace clic en
+          «Aceptar» en el banner de cookies o si ya había aceptado previamente (preferencia almacenada en el
+          navegador).
         </p>
-        <ul className="list-inside list-disc space-y-2">
-          <li>
-            <strong>Meta Pixel (Facebook)</strong>: script <code className="text-xs">fbevents.js</code> desde{' '}
-            <span className="break-all font-mono text-xs">connect.facebook.net</span>. Píxel ID:{' '}
-            <span className="font-mono text-xs">406711755248824</span>. Sirve para medición y, según la configuración de
-            campañas, publicidad. Puede establecer cookies propias o de terceros en el dominio del usuario o identificadores
-            relacionados.
-          </li>
-          <li>
-            <strong>LinkedIn Insight Tag</strong>: script <code className="text-xs">insight.min.js</code> desde{' '}
-            <span className="break-all font-mono text-xs">snap.licdn.com</span>, con partner ID{' '}
-            <span className="font-mono text-xs">9934705</span>. Permite analítica y remarketing en LinkedIn.
-          </li>
-        </ul>
         <p>
-          Además, en modo sin JavaScript, <code className="text-xs">index.html</code> incluye imágenes de seguimiento
-          (píxeles 1×1) para <strong>Facebook</strong> y <strong>LinkedIn</strong>, que pueden registrar la visita de
-          forma similar a las cookies.
+          La elección se guarda en <strong>localStorage</strong> bajo la clave técnica{' '}
+          <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-xs">kuvu_cookie_consent</code> con valor{' '}
+          <code className="text-xs">all</code> (aceptar analítica) o <code className="text-xs">essential</code> (solo
+          necesarias; no se cargan Meta ni LinkedIn). Los valores antiguos <code className="text-xs">accepted</code> /{' '}
+          <code className="text-xs">rejected</code> se interpretan igual que <code className="text-xs">all</code> /{' '}
+          <code className="text-xs">essential</code>.
         </p>
       </section>
 
       <section className="space-y-3">
-        <h2>3. Calendly (solo página de agradecimiento)</h2>
+        <h2>3. Contenido de los scripts (si acepta)</h2>
+        <ul className="list-inside list-disc space-y-2">
+          <li>
+            <strong>Meta Pixel (Facebook)</strong>: <code className="text-xs">fbevents.js</code> desde{' '}
+            <span className="break-all font-mono text-xs">connect.facebook.net</span>. Píxel ID:{' '}
+            <span className="font-mono text-xs">406711755248824</span>. Medición y, según la configuración de campañas,
+            publicidad.
+          </li>
+          <li>
+            <strong>LinkedIn Insight Tag</strong>: <code className="text-xs">insight.min.js</code> desde{' '}
+            <span className="break-all font-mono text-xs">snap.licdn.com</span>, partner ID{' '}
+            <span className="font-mono text-xs">9934705</span>. Analítica y remarketing en LinkedIn.
+          </li>
+        </ul>
+        <p>
+          Tras la aceptación, pueden insertarse también elementos <code className="text-xs">noscript</code> con píxeles
+          1×1 asociados a esos proveedores.
+        </p>
+      </section>
+
+      <section className="space-y-3">
+        <h2>4. Calendly (solo página de agradecimiento)</h2>
         <p>
           En la ruta <code className="text-xs">/gracias</code>, cuando el usuario se desplaza hasta el bloque del
           calendario, el sitio carga el script <code className="text-xs">widget.js</code> desde{' '}
@@ -68,7 +80,7 @@ export default function PoliticaCookiesPage() {
       </section>
 
       <section className="space-y-3">
-        <h2>4. Finalidad y base legal</h2>
+        <h2>5. Finalidad y base legal</h2>
         <p>
           Las cookies o tecnologías similares de Meta y LinkedIn se utilizan para analítica y marketing digital; la base
           legal será, según el caso, su consentimiento (art. 6.1.a RGPD y art. 22 LSSI) o el interés legítimo
@@ -81,7 +93,7 @@ export default function PoliticaCookiesPage() {
       </section>
 
       <section className="space-y-3">
-        <h2>5. Cómo gestionar o desactivar cookies</h2>
+        <h2>6. Cómo gestionar o desactivar cookies</h2>
         <p>
           Puede configurar su navegador para bloquear o eliminar cookies. También puede usar las herramientas de
           configuración de anuncios de Meta y LinkedIn. Tenga en cuenta que desactivar cookies técnicas puede afectar al
@@ -90,7 +102,7 @@ export default function PoliticaCookiesPage() {
       </section>
 
       <section className="space-y-3">
-        <h2>6. Más información</h2>
+        <h2>7. Más información</h2>
         <p>
           Para el tratamiento de datos personales asociado a la navegación, consulte la{' '}
           <Link to="/politica-privacidad" className="font-medium text-[#1976d2] underline hover:text-blue-800">

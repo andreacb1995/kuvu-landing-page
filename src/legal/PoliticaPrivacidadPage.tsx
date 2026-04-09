@@ -108,6 +108,13 @@ export default function PoliticaPrivacidadPage() {
             <strong>Cumplimiento de obligaciones legales</strong> (art. 6.1.c RGPD).
           </li>
         </ul>
+        <p>
+          El sitio incorpora un <strong>banner de cookies</strong>: los proveedores Meta (Pixel) y LinkedIn (Insight Tag)
+          solo reciben datos derivados de su visita si usted acepta; la preferencia se guarda en{' '}
+          <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-xs">localStorage</code> (clave{' '}
+          <code className="text-xs">kuvu_cookie_consent</code>; valores <code className="text-xs">all</code> o{' '}
+          <code className="text-xs">essential</code>). Si elige solo esenciales, esos scripts no se ejecutan.
+        </p>
       </section>
 
       <section className="space-y-3">

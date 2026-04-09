@@ -4,9 +4,33 @@
   html {
     scroll-behavior: smooth;
   }
+
+  /** Espacio inferior cuando la franja de cookies está visible (scroll del contenido). */
+  body.cookie-banner-visible {
+    padding-bottom: min(14rem, 40vh);
+  }
+
+  @media (min-width: 768px) {
+    body.cookie-banner-visible {
+      padding-bottom: 8rem;
+    }
+  }
 }
 
 @layer components {
+  /**
+   * Botón flotante WhatsApp: sube cuando el banner de cookies está visible (evita solapamiento).
+   */
+  body.cookie-banner-visible .kuvu-float-whatsapp {
+    bottom: 6rem;
+  }
+
+  @media (min-width: 640px) {
+    body.cookie-banner-visible .kuvu-float-whatsapp {
+      bottom: 6.5rem;
+    }
+  }
+
   /**
    * Navbar /gracias: cristal (glassmorphism), tono corporativo oscuro-azulado.
    */

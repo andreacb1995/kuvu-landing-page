@@ -516,7 +516,7 @@ export default function Landing() {
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => handleWhatsAppClick('floating')}
-        className="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg ring-4 ring-white/90 hover:bg-[#20bd5a] transition-colors sm:bottom-8 sm:right-8"
+        className="kuvu-float-whatsapp fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg ring-4 ring-white/90 transition-[bottom,transform] duration-300 ease-out hover:bg-[#20bd5a] sm:bottom-8 sm:right-8"
         aria-label="Abrir WhatsApp"
       >
         <MessageCircle className="h-7 w-7" aria-hidden />

@@ -9,6 +9,7 @@ import ThankYou from './ThankYou';
 import AvisoLegalPage from './legal/AvisoLegalPage';
 import PoliticaCookiesPage from './legal/PoliticaCookiesPage';
 import PoliticaPrivacidadPage from './legal/PoliticaPrivacidadPage';
+import { CookieConsentBanner } from './CookieConsentBanner';
 import { MetaPixelSpaPageView } from './MetaPixelSpaPageView';
 import { ScrollToTop } from './ScrollToTop';
 
@@ -16,6 +17,7 @@ export default function App() {
   return (
     <>
       <ScrollToTop />
+      <CookieConsentBanner />
       <MetaPixelSpaPageView />
       <Routes>
         <Route path="/" element={<Landing />} />
