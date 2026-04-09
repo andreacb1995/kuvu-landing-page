@@ -12,7 +12,7 @@ import { DEFAULT_CALENDLY_URL, LOGO_BLANCO_URL, THANK_YOU_SESSION_KEY, WHATSAPP_
 import { trackFormSubmittedPage, trackLead, trackSchedule, trackWhatsAppContact } from './metaPixel';
 
 const CALENDLY_URL_RAW = import.meta.env.VITE_CALENDLY_URL?.trim() || DEFAULT_CALENDLY_URL;
-/** Siempre con hide_landing_page_details y hide_gdpr_banner (también aplicados en initInlineWidget). */
+/** Embed limpio: sin cabecera interna ni banner GDPR (reaplicado también en getCalendlyInlineWidgetOptions). */
 const CALENDLY_URL = appendCalendlyEmbedQueryParams(CALENDLY_URL_RAW);
 
 export default function ThankYou() {
@@ -105,8 +105,8 @@ export default function ThankYou() {
               ¡Solicitud recibida!
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-pretty text-center text-base leading-relaxed text-white/95 sm:text-lg mb-4">
-              El equipo de Kuvu se pondrá en contacto contigo pronto para resolver tus dudas. Si prefieres asegurar un
-              hueco ya mismo, elige el momento que mejor te encaje para una demo con nuestra especialista:
+              El equipo de Kuvu se pondrá en contacto contigo pronto. Para tu comodidad, también puedes elegir
+              directamente un hueco en nuestra agenda para que veamos juntos cómo el sistema puede ayudarte:
             </p>
           </div>
 

@@ -196,7 +196,7 @@ function ContactSection() {
               disabled={status === 'loading'}
               className={`${ctaPrimaryOnLightClass} w-full max-w-full sm:max-w-xl sm:mx-auto disabled:cursor-not-allowed disabled:opacity-65 disabled:hover:bg-[#ffc107] disabled:hover:shadow-md disabled:hover:ring-amber-300/70`}
             >
-              {status === 'loading' ? 'ENVIANDO…' : 'Enviar y ver disponibilidad'}
+              {status === 'loading' ? 'ENVIANDO…' : 'Solicitar información y sesión gratuita'}
             </button>
           </div>
         </form>
@@ -262,8 +262,7 @@ export default function Landing() {
                     <li className="flex items-center space-x-3">
                       <CheckCircle className="w-6 h-6 text-[#ffc107] flex-shrink-0" />
                       <span className="text-blue-50 font-medium text-base sm:text-lg">
-                        Facturación automática basada en el uso real
-                      </span>
+                        Facturación automática basada en el consumo real                      </span>
                     </li>
                   </ul>
                 </div>
@@ -271,7 +270,7 @@ export default function Landing() {
 
               <div className="mt-8 sm:mt-10">
                 <a href="#contacto" className={`${ctaPrimaryClass} normal-case w-full sm:w-auto`}>
-                  Solicitar información y sesión
+                  Solicitar información y sesión gratuita
                 </a>
               </div>
             </div>
@@ -310,7 +309,7 @@ export default function Landing() {
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Administración</h3>
               <p className="text-gray-600 leading-normal md:leading-relaxed">
-                Genera facturas PDF basadas en el uso real. Controla pagos de comedor y madrugadores sin errores
+                Genera facturas PDF basadas en el consumo real. Controla pagos de comedor y madrugadores sin errores
                 manuales.
               </p>
             </div>
@@ -332,7 +331,7 @@ export default function Landing() {
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">App Familias</h3>
               <p className="text-gray-600 leading-normal md:leading-relaxed">
-                Tranquilidad y agilidad. Los padres gestionan ausencias, consultan menús y reciben avisos desde su móvil.
+                Tranquilidad y agilidad. Las familias gestionan ausencias, consultan menús y reciben avisos desde su móvil.
               </p>
             </div>
           </div>
@@ -370,28 +369,28 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Por qué confiar en Kuvu */}
-      <section className="py-16 md:py-24 bg-gray-50 border-t border-gray-100" aria-labelledby="confianza-heading">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 1. Por qué confiar en Kuvu — generador de confianza */}
+      <section className="border-t border-gray-100 bg-gray-50 py-16 md:py-24" aria-labelledby="confianza-heading">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2
             id="confianza-heading"
-            className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 md:mb-10 text-center tracking-tight"
+            className="mb-8 text-center text-3xl font-bold tracking-tight text-gray-900 md:mb-10 md:text-4xl"
           >
             Por qué confiar en Kuvu
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 lg:gap-12 items-stretch">
-            <article className="flex h-full min-h-0 flex-col rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-shadow hover:shadow-md max-sm:items-center max-sm:text-center md:items-stretch md:text-left">
-              <div className="mb-6 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-50 max-sm:mx-auto">
+          <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-3 md:gap-10 lg:gap-12">
+            <article className="flex h-full min-h-0 max-sm:items-center max-sm:text-center flex-col rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-shadow hover:shadow-md md:items-stretch md:text-left">
+              <div className="mb-6 flex h-14 w-14 max-sm:mx-auto shrink-0 items-center justify-center rounded-2xl bg-blue-50">
                 <Sparkles className="h-[2.1rem] w-[2.1rem] shrink-0 text-[#1976d2]" aria-hidden />
               </div>
               <h3 className="mb-3 text-xl font-bold text-gray-900">Migración sin esfuerzo</h3>
               <p className="flex-1 text-gray-600 leading-normal md:leading-relaxed">
-                Nosotros hacemos el trabajo sucio. Importamos tus listados de alumnos y configuramos tus menús para que
-                empieces a trabajar sin mover un dedo.
+                Nosotros nos encargamos del trabajo pesado. Importamos tus listados de alumnos y configuramos tus menús
+                para que empieces a trabajar sin complicaciones.
               </p>
             </article>
-            <article className="flex h-full min-h-0 flex-col rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-shadow hover:shadow-md max-sm:items-center max-sm:text-center md:items-stretch md:text-left">
-              <div className="mb-6 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-50 max-sm:mx-auto">
+            <article className="flex h-full min-h-0 max-sm:items-center max-sm:text-center flex-col rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-shadow hover:shadow-md md:items-stretch md:text-left">
+              <div className="mb-6 flex h-14 w-14 max-sm:mx-auto shrink-0 items-center justify-center rounded-2xl bg-blue-50">
                 <MessageSquare className="h-[2.1rem] w-[2.1rem] shrink-0 text-[#1976d2]" aria-hidden />
               </div>
               <h3 className="mb-3 text-xl font-bold text-gray-900">Soporte Humano Directo</h3>
@@ -400,39 +399,40 @@ export default function Landing() {
                 resolver cualquier duda al instante.
               </p>
             </article>
-            <article className="flex h-full min-h-0 flex-col rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-shadow hover:shadow-md max-sm:items-center max-sm:text-center md:items-stretch md:text-left">
-              <div className="mb-6 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-50 max-sm:mx-auto">
+            <article className="flex h-full min-h-0 max-sm:items-center max-sm:text-center flex-col rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-shadow hover:shadow-md md:items-stretch md:text-left">
+              <div className="mb-6 flex h-14 w-14 max-sm:mx-auto shrink-0 items-center justify-center rounded-2xl bg-blue-50">
                 <ShieldCheck className="h-[2.1rem] w-[2.1rem] shrink-0 text-[#1976d2]" aria-hidden />
               </div>
               <h3 className="mb-3 text-xl font-bold text-gray-900">Control y Seguridad Total</h3>
               <p className="flex-1 text-gray-600 leading-normal md:leading-relaxed">
-                Tus datos están cifrados y protegidos bajo la estricta normativa escolar. Gestiona con la tranquilidad de
-                que tu centro cumple con toda la legalidad.
+                Tus datos están cifrados y protegidos bajo la normativa escolar vigente y la RGPD. Gestiona con la
+                tranquilidad de cumplir toda la legalidad.
               </p>
             </article>
           </div>
         </div>
       </section>
 
-      {/* Franja CTA — fondo azul oscuro */}
+      {/* 2. Cierre — empujón final hacia el formulario */}
       <section className="border-y border-blue-900/30 bg-gradient-to-b from-[#1565c0] to-[#0d47a1] py-16 md:py-24">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 tracking-tight text-white">
-            ¿Listo para dejar atrás el caos administrativo?
+        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+          <h2 className="mb-4 text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">
+            Simplifica la gestión de tu centro hoy mismo
           </h2>
-          <p className="mb-8 max-w-2xl mx-auto text-base sm:text-lg leading-normal md:leading-relaxed text-blue-100">
-            Te mostraremos cómo Kuvu puede ayudarte a recuperar el control de tu tiempo y
-            profesionalizar la gestión de tu centro o catering.
+          <p className="mx-auto mb-8 max-w-2xl text-base leading-normal text-blue-100 sm:text-lg md:leading-relaxed">
+            Descubre cómo Kuvu digitaliza tus procesos para que recuperes el control de tu tiempo y profesionalices la
+            gestión de tu catering o comedor.
           </p>
           <a
             href="#contacto"
             className={`${ctaPrimaryOnDarkStripClass} normal-case w-full sm:inline-flex sm:w-auto`}
           >
-            Solicitar información y sesión
+            Solicitar información y sesión gratuita
           </a>
         </div>
       </section>
 
+      {/* 3. Formulario de contacto */}
       <ContactSection />
 
       {/* Footer */}
@@ -446,8 +446,7 @@ export default function Landing() {
                 className="h-20 md:h-28 w-auto max-w-full object-contain mx-auto md:mx-0 mb-4"
               />
               <p className="text-sm text-gray-400 max-w-xs mx-auto md:mx-0 leading-normal md:leading-relaxed">
-                La plataforma integral para Colegios y Caterings que elimina el caos administrativo.
-              </p>
+              La plataforma integral para centros educativos y caterings que elimina el caos administrativo.              </p>
             </div>
 
             <div className="md:pt-14">
