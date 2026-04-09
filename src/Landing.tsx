@@ -4,7 +4,7 @@
  */
 
 import { useState, useEffect, useRef, type FormEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   CheckCircle,
   Clock,
@@ -161,9 +161,9 @@ function ContactSection() {
             />
             <label htmlFor="privacidad" className="text-sm text-gray-600 leading-snug">
               He leído y acepto la{' '}
-              <a href="#" className="font-medium text-[#1976d2] underline hover:text-blue-800">
+              <Link to="/politica-privacidad" className="font-medium text-[#1976d2] underline hover:text-blue-800">
                 política de privacidad
-              </a>
+              </Link>
               .
             </label>
           </div>
@@ -456,7 +456,8 @@ export default function Landing() {
                 className="h-20 md:h-28 w-auto max-w-full object-contain mx-auto md:mx-0 mb-4"
               />
               <p className="text-sm text-gray-400 max-w-xs mx-auto md:mx-0 leading-normal md:leading-relaxed">
-              La plataforma integral para centros educativos y caterings que elimina el caos administrativo.              </p>
+                La plataforma integral para centros educativos y caterings que elimina el caos administrativo.
+              </p>
             </div>
 
             <div className="md:pt-14">
@@ -483,21 +484,21 @@ export default function Landing() {
 
             <div className="md:text-right md:pt-14">
               <h4 className="text-white font-semibold mb-4 uppercase tracking-wider text-sm">Legal</h4>
-              <ul className="space-y-3 text-sm">
+              <ul className="space-y-2.5 text-xs text-gray-500">
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                    Aviso Legal
-                  </a>
+                  <Link to="/aviso-legal" className="transition-colors hover:text-gray-300">
+                    Aviso legal
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                    Política de Privacidad
-                  </a>
+                  <Link to="/politica-privacidad" className="transition-colors hover:text-gray-300">
+                    Política de privacidad
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                    Política de Cookies
-                  </a>
+                  <Link to="/politica-cookies" className="transition-colors hover:text-gray-300">
+                    Política de cookies
+                  </Link>
                 </li>
               </ul>
             </div>
