@@ -1,10 +1,12 @@
 /**
- * Widget inline Calendly: URL sin parámetros extra en código.
- * `data-hide-landing-page-details` oculta foto/nombre del evento en el iframe (solo días y horas).
+ * Contenedor mínimo para `initInlineWidget` (misma idea que el snippet oficial de Calendly).
  */
 
 import { useEffect, useRef } from 'react';
 import { getCalendlyInlineWidgetOptions, loadCalendlyScript } from './calendlyEmbed';
+
+/** Debe coincidir con `height` del contenedor (placeholder en ThankYou). */
+export const CALENDLY_EMBED_HEIGHT_PX = 700;
 
 type Props = {
   calendlyUrl: string;
@@ -44,15 +46,7 @@ export function CalendlyInlineWidget({ calendlyUrl, active }: Props) {
   return (
     <div
       ref={parentRef}
-      className="w-full min-w-0 max-w-full min-h-[950px] bg-transparent [&_iframe]:block [&_iframe]:min-h-[950px] [&_iframe]:w-full [&_iframe]:max-w-full [&_iframe]:border-0 [&_iframe]:bg-white [&_iframe]:shadow-none"
-      style={{
-        width: '100%',
-        minWidth: 0,
-        marginLeft: 0,
-        marginRight: 0,
-      }}
-      data-hide-landing-page-details="1"
-      data-hide-gdpr-banner="1"
+      style={{ height: '700px', minWidth: '320px' }}
     />
   );
 }

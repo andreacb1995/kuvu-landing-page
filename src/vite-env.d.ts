@@ -18,6 +18,7 @@ interface Window {
     initInlineWidget: (options: {
       url: string;
       parentElement: HTMLElement;
+      styles?: { height?: string; width?: string };
       prefill?: Record<string, unknown>;
       utm?: Record<string, unknown>;
     }) => void;

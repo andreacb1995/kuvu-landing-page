@@ -1,6 +1,3 @@
-/** Referencia legada; alturas reales del iframe en /gracias están en `CalendlyInlineWidget` (p. ej. min ~520px móvil / ~720px sm+). */
-export const CALENDLY_IFRAME_HEIGHT_PX = 720;
-
 const CALENDLY_SCRIPT_SRC = 'https://assets.calendly.com/assets/external/widget.js';
 
 /** Carga el script oficial de Calendly una sola vez. */
@@ -36,13 +33,31 @@ export function loadCalendlyScript(): Promise<void> {
   });
 }
 
+/** Añade parámetros oficiales del embed para menos cabecera y sin banner GDPR en el iframe. */
+export function appendCalendlyEmbedQueryParams(url: string): string {
+  const trimmed = url.trim();
+  if (!trimmed) return trimmed;
+  try {
+    const u = new URL(trimmed);
+    u.searchParams.set('hide_landing_page_details', '1');
+    u.searchParams.set('hide_gdpr_banner', '1');
+    return u.toString();
+  } catch {
+    return trimmed;
+  }
+}
+
 /**
- * `initInlineWidget` con la URL tal cual (sin parámetros de color ni personalización en código).
+ * `initInlineWidget`: el contenedor en React tiene `height: 700px`; el iframe llena con height/width 100%.
  */
 export function getCalendlyInlineWidgetOptions(parentElement: HTMLElement, baseUrl: string) {
   return {
-    url: baseUrl.trim(),
+    url: appendCalendlyEmbedQueryParams(baseUrl),
     parentElement,
+    styles: {
+      height: '100%',
+      width: '100%',
+    },
     prefill: {} as Record<string, unknown>,
     utm: {} as Record<string, unknown>,
   };

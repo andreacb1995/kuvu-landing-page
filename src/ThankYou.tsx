@@ -6,7 +6,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { MessageCircle } from 'lucide-react';
-import { CalendlyInlineWidget } from './CalendlyInlineWidget';
+import { CalendlyInlineWidget, CALENDLY_EMBED_HEIGHT_PX } from './CalendlyInlineWidget';
 import { DEFAULT_CALENDLY_URL, LOGO_BLANCO_URL, THANK_YOU_SESSION_KEY, WHATSAPP_LINK } from './constants';
 import { trackFormSubmittedPage, trackLead, trackSchedule, trackWhatsAppContact } from './metaPixel';
 
@@ -87,7 +87,7 @@ export default function ThankYou() {
     <div className="min-h-screen w-full bg-[#1976d2] font-sans text-white">
       <main className="mx-auto flex w-full max-w-[1100px] flex-col items-center pt-4 pb-0">
         <article className="w-full max-w-[1100px]">
-          <div className="flex w-full justify-start px-6 pt-2 pb-2 sm:px-10 md:px-16">
+          <div className="flex w-full justify-start px-6 pt-1 pb-1 sm:px-10 md:px-16">
             <img
               src={LOGO_BLANCO_URL}
               alt="KUVU"
@@ -114,22 +114,21 @@ export default function ThankYou() {
 
           <section
             ref={calendlySectionRef}
-            className="mt-4 w-full min-w-0 px-6 pb-6 sm:px-10 sm:pb-8 md:px-16"
+            className="mt-2 w-full min-w-0 px-6 pb-10 sm:px-10 md:px-16"
           >
-            <div className="overflow-hidden rounded-[32px] bg-white p-0 shadow-[0_24px_56px_-8px_rgba(0,0,0,0.22),0_8px_24px_-6px_rgba(0,0,0,0.08)] ring-1 ring-black/[0.06]">
-              <div className="w-full min-w-0 max-w-full p-0">
-                {loadCalendlyIframe ? (
-                  <CalendlyInlineWidget calendlyUrl={CALENDLY_URL} active />
-                ) : (
-                  <div
-                    className="flex min-h-[950px] w-full flex-col items-center justify-center gap-3 bg-[#fafafa] py-12 text-sm text-gray-500"
-                    aria-hidden
-                  >
-                    <div className="h-8 w-8 animate-pulse rounded-full bg-gray-200" />
-                    <span className="text-gray-400">Cargando calendario…</span>
-                  </div>
-                )}
-              </div>
+            <div className="rounded-3xl bg-white p-0 shadow-xl">
+              {loadCalendlyIframe ? (
+                <CalendlyInlineWidget calendlyUrl={CALENDLY_URL} active />
+              ) : (
+                <div
+                  className="flex w-full flex-col items-center justify-center gap-3 bg-[#fafafa] p-0 text-sm text-gray-500"
+                  style={{ minHeight: CALENDLY_EMBED_HEIGHT_PX }}
+                  aria-hidden
+                >
+                  <div className="h-8 w-8 animate-pulse rounded-full bg-gray-200" />
+                  <span className="text-gray-400">Cargando calendario…</span>
+                </div>
+              )}
             </div>
           </section>
 

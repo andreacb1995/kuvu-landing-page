@@ -196,7 +196,7 @@ function ContactSection() {
               disabled={status === 'loading'}
               className={`${ctaPrimaryOnLightClass} w-full max-w-full sm:max-w-xl sm:mx-auto disabled:cursor-not-allowed disabled:opacity-65 disabled:hover:bg-[#ffc107] disabled:hover:shadow-md disabled:hover:ring-amber-300/70`}
             >
-              {status === 'loading' ? 'ENVIANDO…' : 'Solicitar acceso y continuar'}
+              {status === 'loading' ? 'ENVIANDO…' : 'Enviar y ver disponibilidad'}
             </button>
           </div>
         </form>
