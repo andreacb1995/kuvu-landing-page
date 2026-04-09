@@ -303,33 +303,33 @@ export default function Landing() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-12">
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-              <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6">
-                <Clock className="w-7 h-7 text-[#1976d2]" />
+            <div className="rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-sm transition-shadow hover:shadow-md md:text-left">
+              <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 md:mx-0">
+                <Clock className="h-7 w-7 text-[#1976d2]" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Administración</h3>
+              <h3 className="mb-3 text-xl font-bold text-gray-900">Administración</h3>
               <p className="text-gray-600 leading-normal md:leading-relaxed">
                 Genera facturas PDF basadas en el consumo real. Controla pagos de comedor y madrugadores sin errores
                 manuales.
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-              <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6">
-                <MessageSquare className="w-7 h-7 text-[#1976d2]" />
+            <div className="rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-sm transition-shadow hover:shadow-md md:text-left">
+              <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 md:mx-0">
+                <MessageSquare className="h-7 w-7 text-[#1976d2]" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Sincronización</h3>
+              <h3 className="mb-3 text-xl font-bold text-gray-900">Sincronización</h3>
               <p className="text-gray-600 leading-normal md:leading-relaxed">
                 Previsión precisa para cocina en tiempo real. Evita el desperdicio de comida, sea cual sea tu modelo de
                 gestión.
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-              <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6">
-                <Smartphone className="w-7 h-7 text-[#1976d2]" />
+            <div className="rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-sm transition-shadow hover:shadow-md md:text-left">
+              <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 md:mx-0">
+                <Smartphone className="h-7 w-7 text-[#1976d2]" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">App Familias</h3>
+              <h3 className="mb-3 text-xl font-bold text-gray-900">App Familias</h3>
               <p className="text-gray-600 leading-normal md:leading-relaxed">
                 Tranquilidad y agilidad. Las familias gestionan ausencias, consultan menús y reciben avisos desde su móvil.
               </p>
@@ -338,39 +338,49 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Diferenciación: colegio vs catering */}
-      <section className="py-16 md:py-24 bg-gray-50 border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 text-center mb-10 md:mb-12 tracking-tight">
+      {/* Diferenciación: colegio vs catering — cápsulas horizontales, distintas del grid de 3 columnas */}
+      <section className="border-t border-gray-100 bg-gray-50 py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="mb-10 text-center text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl md:mb-12 md:text-4xl">
             ¿Eres Colegio o Catering?
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 max-w-5xl mx-auto">
-            <div className="bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-              <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6">
-                <GraduationCap className="w-7 h-7 text-[#1976d2]" />
+          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-4 md:max-w-6xl md:grid-cols-2 md:gap-8 lg:gap-10">
+            <article className="flex flex-row items-start gap-4 rounded-[2rem] border border-gray-100/90 bg-white p-4 shadow-sm transition-shadow hover:shadow-md sm:gap-5 sm:p-5 md:gap-6 md:p-6">
+              <div
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-blue-600 sm:h-12 sm:w-12"
+                aria-hidden
+              >
+                <GraduationCap className="h-5 w-5 text-white sm:h-6 sm:w-6" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Colegios</h3>
-              <p className="text-gray-600 leading-normal md:leading-relaxed">
-                Toma el control total de tu gestión. Centraliza inscripciones, bajas y facturación de forma
-                independiente, trabajes con el catering que trabajes o tengas cocina propia.
-              </p>
-            </div>
-            <div className="bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-              <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6">
-                <UtensilsCrossed className="w-7 h-7 text-[#1976d2]" />
+              <div className="min-w-0 flex-1 text-left">
+                <h3 className="mb-1.5 text-lg font-bold leading-tight text-gray-900 sm:mb-2 sm:text-xl">Colegios</h3>
+                <p className="text-sm leading-relaxed text-gray-600 sm:text-[15px] md:text-base md:leading-relaxed">
+                  Toma el control total de tu gestión. Centraliza inscripciones, bajas y facturación de forma
+                  independiente, trabajes con el catering que trabajes o tengas cocina propia.
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Caterings</h3>
-              <p className="text-gray-600 leading-normal md:leading-relaxed">
-                Digitaliza la relación con tus clientes. Recibe previsiones de menús exactas, reduce el desperdicio y
-                ofrece menús digitales a las familias.
-              </p>
-            </div>
+            </article>
+            <article className="flex flex-row items-start gap-4 rounded-[2rem] border border-gray-100/90 bg-white p-4 shadow-sm transition-shadow hover:shadow-md sm:gap-5 sm:p-5 md:gap-6 md:p-6">
+              <div
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-blue-600 sm:h-12 sm:w-12"
+                aria-hidden
+              >
+                <UtensilsCrossed className="h-5 w-5 text-white sm:h-6 sm:w-6" />
+              </div>
+              <div className="min-w-0 flex-1 text-left">
+                <h3 className="mb-1.5 text-lg font-bold leading-tight text-gray-900 sm:mb-2 sm:text-xl">Caterings</h3>
+                <p className="text-sm leading-relaxed text-gray-600 sm:text-[15px] md:text-base md:leading-relaxed">
+                  Digitaliza la relación con tus clientes. Recibe previsiones de menús exactas, reduce el desperdicio y
+                  ofrece menús digitales a las familias.
+                </p>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
       {/* 1. Por qué confiar en Kuvu — generador de confianza */}
-      <section className="border-t border-gray-100 bg-gray-50 py-16 md:py-24" aria-labelledby="confianza-heading">
+      <section className="border-t border-gray-100 bg-white py-16 md:py-24" aria-labelledby="confianza-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2
             id="confianza-heading"
@@ -379,8 +389,8 @@ export default function Landing() {
             Por qué confiar en Kuvu
           </h2>
           <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-3 md:gap-10 lg:gap-12">
-            <article className="flex h-full min-h-0 max-sm:items-center max-sm:text-center flex-col rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-shadow hover:shadow-md md:items-stretch md:text-left">
-              <div className="mb-6 flex h-14 w-14 max-sm:mx-auto shrink-0 items-center justify-center rounded-2xl bg-blue-50">
+            <article className="flex h-full min-h-0 flex-col items-center rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-sm transition-shadow hover:shadow-md md:items-stretch md:text-left">
+              <div className="mb-6 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-blue-50 mx-auto md:mx-0">
                 <Sparkles className="h-[2.1rem] w-[2.1rem] shrink-0 text-[#1976d2]" aria-hidden />
               </div>
               <h3 className="mb-3 text-xl font-bold text-gray-900">Migración sin esfuerzo</h3>
@@ -389,8 +399,8 @@ export default function Landing() {
                 para que empieces a trabajar sin complicaciones.
               </p>
             </article>
-            <article className="flex h-full min-h-0 max-sm:items-center max-sm:text-center flex-col rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-shadow hover:shadow-md md:items-stretch md:text-left">
-              <div className="mb-6 flex h-14 w-14 max-sm:mx-auto shrink-0 items-center justify-center rounded-2xl bg-blue-50">
+            <article className="flex h-full min-h-0 flex-col items-center rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-sm transition-shadow hover:shadow-md md:items-stretch md:text-left">
+              <div className="mb-6 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-blue-50 mx-auto md:mx-0">
                 <MessageSquare className="h-[2.1rem] w-[2.1rem] shrink-0 text-[#1976d2]" aria-hidden />
               </div>
               <h3 className="mb-3 text-xl font-bold text-gray-900">Soporte Humano Directo</h3>
@@ -399,8 +409,8 @@ export default function Landing() {
                 resolver cualquier duda al instante.
               </p>
             </article>
-            <article className="flex h-full min-h-0 max-sm:items-center max-sm:text-center flex-col rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-shadow hover:shadow-md md:items-stretch md:text-left">
-              <div className="mb-6 flex h-14 w-14 max-sm:mx-auto shrink-0 items-center justify-center rounded-2xl bg-blue-50">
+            <article className="flex h-full min-h-0 flex-col items-center rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-sm transition-shadow hover:shadow-md md:items-stretch md:text-left">
+              <div className="mb-6 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-blue-50 mx-auto md:mx-0">
                 <ShieldCheck className="h-[2.1rem] w-[2.1rem] shrink-0 text-[#1976d2]" aria-hidden />
               </div>
               <h3 className="mb-3 text-xl font-bold text-gray-900">Control y Seguridad Total</h3>
