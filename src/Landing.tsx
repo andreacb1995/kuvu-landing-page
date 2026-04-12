@@ -37,8 +37,9 @@ const FORMSPREE_URL = `https://formspree.io/f/${FORMSPREE_ID}`;
 const inputClass =
   'w-full min-w-0 max-w-full rounded-2xl border border-gray-200 bg-white px-4 py-3.5 text-base text-gray-900 placeholder:text-gray-500 shadow-sm transition-[color,box-shadow,border-color] duration-200 focus:border-[#1976d2] focus:outline-none focus:ring-2 focus:ring-[#1976d2]/25 focus:ring-offset-2 focus:ring-offset-white';
 
-const navWhatsAppClass =
-  'inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-2.5 text-sm font-bold uppercase tracking-wide text-white shadow-md ring-2 ring-white/30 transition-colors hover:bg-[#20bd5a] sm:px-5 sm:text-base';
+/** Enlaces de contacto en footer: mismo aspecto (sin subrayado ni color visitado del navegador). */
+const footerContactLinkClass =
+  'text-gray-400 hover:text-white transition-colors no-underline visited:text-gray-400 visited:hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/30';
 
 function ContactSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -176,20 +177,6 @@ function ContactSection() {
             </p>
           )}
 
-          <p className="text-center text-sm text-gray-600 leading-snug pt-1">
-            O si lo prefieres, escríbenos ahora mismo por{' '}
-            <a
-              href={WHATSAPP_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => handleWhatsAppClick('contact_inline')}
-              className="font-medium text-[#1976d2] underline hover:text-blue-800"
-            >
-              WhatsApp
-            </a>{' '}
-            para una respuesta inmediata.
-          </p>
-
           <div className="flex justify-center pt-2 w-full">
             <button
               type="submit"
@@ -199,6 +186,20 @@ function ContactSection() {
               {status === 'loading' ? 'ENVIANDO…' : 'Solicitar información y sesión gratuita'}
             </button>
           </div>
+
+          <p className="mx-auto mt-4 max-w-xl px-1 text-center text-sm leading-relaxed text-gray-600">
+            ¿Prefieres hablar directamente? Escríbenos por{' '}
+            <a
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => handleWhatsAppClick('contact_form_plan_b')}
+              className="font-medium text-[#1565c0] underline decoration-[#1565c0]/25 underline-offset-2 transition hover:text-[#0d47a1] hover:decoration-[#0d47a1]/35"
+            >
+              WhatsApp
+            </a>
+            .
+          </p>
         </form>
       </div>
     </section>
@@ -208,31 +209,21 @@ function ContactSection() {
 export default function Landing() {
   return (
     <div className="min-h-screen font-sans text-gray-900 relative">
-      {/* Header / Navbar */}
+      {/* Header / Navbar — solo logo; contacto WhatsApp vía botón flotante */}
       <header className="absolute top-0 left-0 right-0 z-20 pt-3 sm:pt-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-row items-start justify-between gap-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <img
             src="/kuvu-app-logo.png"
             alt="KUVU Logo"
-            className="h-16 sm:h-20 md:h-28 w-auto max-w-[min(100%,12rem)] object-contain mb-10 sm:-ml-2 sm:max-w-none shrink-0"
+            className="mb-10 h-16 w-auto max-w-[min(100%,12rem)] shrink-0 object-contain sm:-ml-2 sm:h-20 sm:max-w-none md:h-28"
           />
-          <a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => handleWhatsAppClick('navbar')}
-            className={`${navWhatsAppClass} mt-1 shrink-0`}
-          >
-            <MessageCircle className="h-5 w-5" aria-hidden />
-            WhatsApp
-          </a>
         </div>
       </header>
 
       {/* Hero Section */}
       <section className="bg-[#1976d2] text-white pt-32 pb-8 sm:pt-36 sm:pb-14 lg:pt-44 lg:pb-24 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 gap-6 sm:gap-10 lg:grid-cols-2 lg:gap-12 lg:items-start">
             <div className="order-1 flex min-w-0 flex-col">
               <div className="flex flex-col gap-8 sm:gap-10 lg:gap-12">
                 <div className="w-full min-w-0">
@@ -275,15 +266,15 @@ export default function Landing() {
               </div>
             </div>
 
-            <div className="order-2 relative mt-6 sm:mt-12 lg:mt-0 flex justify-center items-center w-full min-w-0">
+            <div className="order-2 relative mt-6 flex w-full min-w-0 items-center justify-center sm:mt-10 lg:mt-0 lg:-mt-3 lg:items-start lg:justify-center">
               <div
-                className="absolute inset-0 bg-blue-300 blur-3xl rounded-full opacity-20 transform scale-75 pointer-events-none"
+                className="pointer-events-none absolute inset-0 scale-75 transform rounded-full bg-blue-300 opacity-20 blur-3xl"
                 aria-hidden
               />
               <img
                 src="/mockups-colegios.png"
                 alt="Kuvu: software de gestión para comedores escolares, caterings y centros educativos"
-                className="relative z-10 h-auto max-w-full w-full object-contain max-w-md lg:max-w-none max-h-[min(400px,70vh)] sm:max-h-[500px] lg:max-h-[600px] rounded-2xl shadow-lg hover:scale-105 transition-transform duration-700 ease-out"
+                className="relative z-10 h-auto max-h-[min(400px,70vh)] w-full max-w-md object-contain sm:max-h-[500px] lg:max-h-[600px] lg:max-w-none lg:-translate-y-1 drop-shadow-2xl transition-transform duration-700 ease-out hover:scale-105"
               />
             </div>
           </div>
@@ -405,8 +396,8 @@ export default function Landing() {
               </div>
               <h3 className="mb-3 text-xl font-bold text-gray-900">Soporte Humano Directo</h3>
               <p className="flex-1 text-gray-600 leading-normal md:leading-relaxed">
-                Olvídate de tickets fríos o bots. Tienes contacto directo con nosotros por WhatsApp o teléfono para
-                resolver cualquier duda al instante.
+                Olvídate de tickets fríos o bots. Puedes hablar con nosotros al instante desde el acceso directo de chat
+                en la pantalla o por correo.
               </p>
             </article>
             <article className="flex h-full min-h-0 flex-col items-center rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-sm transition-shadow hover:shadow-md md:items-stretch md:text-left">
@@ -464,19 +455,8 @@ export default function Landing() {
               <h4 className="text-white font-semibold mb-4 uppercase tracking-wider text-sm">Contacto</h4>
               <ul className="space-y-3 text-sm">
                 <li>
-                  <a href="mailto:hola@kuvuapp.com" className="text-gray-400 hover:text-white transition-colors">
+                  <a href="mailto:hola@kuvuapp.com" className={footerContactLinkClass}>
                     hola@kuvuapp.com
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={WHATSAPP_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => handleWhatsAppClick('footer')}
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    +34 621 03 88 12
                   </a>
                 </li>
               </ul>
@@ -504,8 +484,8 @@ export default function Landing() {
             </div>
           </div>
 
-          <div className="border-t border-gray-800 mt-16 pt-10 text-sm text-center text-gray-500 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p>&copy; {new Date().getFullYear()} KUVU. Todos los derechos reservados.</p>
+          <div className="border-t border-gray-800 mt-16 pt-10 flex flex-col items-center gap-3 text-center">
+            <p className="text-xs text-gray-600">&copy; 2026 Kuvu. Todos los derechos reservados.</p>
           </div>
         </div>
       </footer>

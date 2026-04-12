@@ -21,13 +21,16 @@
   /**
    * Botón flotante WhatsApp: sube cuando el banner de cookies está visible (evita solapamiento).
    */
+  /**
+   * Sube el FAB por encima de la franja de cookies en móvil (la franja puede superar ~6rem de alto).
+   */
   body.cookie-banner-visible .kuvu-float-whatsapp {
-    bottom: 6rem;
+    bottom: max(10.5rem, calc(env(safe-area-inset-bottom, 0px) + 9.5rem));
   }
 
   @media (min-width: 640px) {
     body.cookie-banner-visible .kuvu-float-whatsapp {
-      bottom: 6.5rem;
+      bottom: max(7rem, calc(env(safe-area-inset-bottom, 0px) + 6rem));
     }
   }
 
