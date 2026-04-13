@@ -4,7 +4,7 @@
  */
 
 export const META_PIXEL_ID = '406711755248824';
-export const LINKEDIN_PARTNER_ID = '6699001';
+export const LINKEDIN_PARTNER_ID = '9904737';
 
 let marketingScriptsLoaded = false;
 
