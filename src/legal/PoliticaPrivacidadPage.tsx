@@ -148,7 +148,7 @@ export default function PoliticaPrivacidadPage() {
           </li>
           <li>
             <strong>LinkedIn Corporation / LinkedIn Ireland</strong> (Insight Tag, partner ID{' '}
-            <span className="font-mono text-xs">9934705</span>): analítica y remarketing según la configuración de la
+            <span className="font-mono text-xs">6699001</span>): analítica y remarketing según la configuración de la
             campaña.{' '}
             <a href="https://www.linkedin.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">
               Privacidad de LinkedIn
