@@ -25,4 +25,4 @@ export const LOGO_BLANCO_URL = '/kuvu-app-logo.png';
 
 /** Evento Calendly por defecto en /gracias (sin cabecera de evento ni banner GDPR en el embed). */
 export const DEFAULT_CALENDLY_URL =
-  'https://calendly.com/andrea-kuvuapp/demo?hide_landing_page_details=1&hide_gdpr_banner=1';
+  'https://calendly.com/andrea-kuvuapp/sesion-optimizacion?hide_landing_page_details=1&hide_gdpr_banner=1';
