@@ -406,8 +406,7 @@ export default function Landing() {
               </div>
               <h3 className="mb-3 text-xl font-bold text-gray-900">Control y Seguridad Total</h3>
               <p className="flex-1 text-gray-600 leading-normal md:leading-relaxed">
-                Tus datos están cifrados y protegidos bajo la normativa escolar vigente y la RGPD. Gestiona con la
-                tranquilidad de cumplir toda la legalidad.
+                Tus datos están cifrados y protegidos con medidas de seguridad técnicas avanzadas.
               </p>
             </article>
           </div>
