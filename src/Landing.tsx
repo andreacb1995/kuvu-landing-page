@@ -387,8 +387,7 @@ export default function Landing() {
               </div>
               <h3 className="mb-3 text-xl font-bold text-gray-900">Migración sin esfuerzo</h3>
               <p className="flex-1 text-gray-600 leading-normal md:leading-relaxed">
-                Nosotros nos encargamos del trabajo pesado. Importamos tus listados de alumnos y configuramos tus menús
-                para que empieces a trabajar sin complicaciones.
+                Nos encargamos de la puesta en marcha. Importamos tus listados de alumnos y dejamos todo listo para que empieces a trabajar sin complicaciones.
               </p>
             </article>
             <article className="flex h-full min-h-0 flex-col items-center rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-sm transition-shadow hover:shadow-md md:items-stretch md:text-left">
@@ -397,7 +396,7 @@ export default function Landing() {
               </div>
               <h3 className="mb-3 text-xl font-bold text-gray-900">Soporte Humano Directo</h3>
               <p className="flex-1 text-gray-600 leading-normal md:leading-relaxed">
-                Sin tickets fríos ni bots. Escríbenos por WhatsApp o email y te responde una persona real, no un sistema automatizado.
+                Sin bots ni tickets fríos. Estamos al otro lado de WhatsApp o email para atenderte en persona y resolver cualquier duda al momento.
               </p>
             </article>
             <article className="flex h-full min-h-0 flex-col items-center rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-sm transition-shadow hover:shadow-md md:items-stretch md:text-left">
@@ -439,27 +438,27 @@ export default function Landing() {
       <footer className="bg-gray-950 text-gray-400 py-16 md:py-24 border-t border-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-14 lg:gap-16 text-center md:text-left">
-           <div>
-  <img
-    src="/kuvu-app-logo.png"
-    alt="KUVU Logo"
-    className="h-20 md:h-28 w-auto max-w-full object-contain mx-auto md:mx-0 mb-4"
-  />
-  <p className="text-sm text-gray-400 max-w-xs mx-auto md:mx-0 leading-normal md:leading-relaxed">
-    La plataforma integral para centros educativos y caterings que elimina el caos administrativo.
-  </p>
-  <div className="flex justify-center md:justify-start mt-5">
-    <a
-      href="https://www.instagram.com/kuvuapp/"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Instagram de Kuvu"
-      className="text-gray-500 hover:text-[#E1306C] transition-colors duration-200"
-    >
-      <FaInstagram className="w-7 h-7" />
-    </a>
-  </div>
-</div>
+            <div>
+              <img
+                src="/kuvu-app-logo.png"
+                alt="KUVU Logo"
+                className="h-20 md:h-28 w-auto max-w-full object-contain mx-auto md:mx-0 mb-4"
+              />
+              <p className="text-sm text-gray-400 max-w-xs mx-auto md:mx-0 leading-normal md:leading-relaxed">
+                La plataforma integral para centros educativos y caterings que elimina el caos administrativo.
+              </p>
+              <div className="flex justify-center md:justify-start mt-5">
+                <a
+                  href="https://www.instagram.com/kuvuapp/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram de Kuvu"
+                  className="text-gray-500 hover:text-[#E1306C] transition-colors duration-200"
+                >
+                  <FaInstagram className="w-7 h-7" />
+                </a>
+              </div>
+            </div>
 
             <div className="md:pt-14">
               <h4 className="text-white font-semibold mb-4 uppercase tracking-wider text-sm">Contacto</h4>
@@ -471,7 +470,7 @@ export default function Landing() {
                 </li>
 
               </ul>
-              
+
             </div>
 
             <div className="md:text-right md:pt-14">
