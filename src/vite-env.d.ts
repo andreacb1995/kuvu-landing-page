@@ -13,7 +13,6 @@ interface ImportMeta {
 }
 
 interface Window {
-  fbq: (...args: unknown[]) => void;
   Calendly?: {
     initInlineWidget: (options: {
       url: string;

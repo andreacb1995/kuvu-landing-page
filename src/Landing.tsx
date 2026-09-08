@@ -17,7 +17,7 @@ import {
   MessageCircle,
 } from 'lucide-react';
 import { THANK_YOU_SESSION_KEY, WHATSAPP_LINK } from './constants';
-import { handleWhatsAppClick, trackLead } from './metaPixel';
+import { WhatsAppPrivacyDialog } from './components/WhatsAppPrivacyDialog';
 import { FaInstagram } from 'react-icons/fa';
 
 /** CTA amarillo premium — firma marca: ring-4 + ring-offset-2 (offset azul #1976d2 en hero) */
@@ -46,6 +46,8 @@ function ContactSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const navigate = useNavigate();
   const [status, setStatus] = useState<'idle' | 'loading' | 'error'>('idle');
+  const [whatsAppDialogOpen, setWhatsAppDialogOpen] = useState(false);
+  const whatsAppTriggerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (status === 'error') {
@@ -69,8 +71,7 @@ function ContactSection() {
         headers: { Accept: 'application/json' },
       });
       if (res.ok) {
-        trackLead();
-        sessionStorage.setItem(THANK_YOU_SESSION_KEY, '1');
+                sessionStorage.setItem(THANK_YOU_SESSION_KEY, '1');
         form.reset();
         navigate('/gracias');
       } else {
@@ -153,7 +154,16 @@ function ContactSection() {
               placeholder="¿En qué podemos ayudarte?"
             />
           </div>
-          <div className="flex items-start gap-3 pt-1">
+          <p className="rounded-lg border border-gray-100 bg-gray-50/70 px-3 py-2.5 text-xs leading-relaxed text-gray-500">
+            <strong className="font-semibold text-gray-600">Responsable del tratamiento:</strong> Andrea Carballido Ballesteros (KUVU).{' '}
+            <strong className="font-semibold text-gray-600">Finalidad:</strong> Gestionar la solicitud de contacto. En caso de que la persona interesada acepte la remisión de información comercial por medios electrónicos, gestionar asimismo dicha solicitud y el envío de esas comunicaciones.{' '}
+            <strong className="font-semibold text-gray-600">Derechos:</strong> Acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad, cuando proceda. Asimismo, puede retirar en cualquier momento el consentimiento, sin que ello afecte a la licitud del tratamiento realizado con anterioridad a su retirada en privacidad@kuvuapp.com.{' '}
+            <strong className="font-semibold text-gray-600">Más información:</strong>{' '}
+            <Link to="/politica-privacidad" className="font-medium text-gray-600 underline decoration-gray-300 underline-offset-2 hover:text-gray-800">
+              Política de Privacidad
+            </Link>
+          </p>
+          <div className="flex items-start gap-3">
             <input
               id="privacidad"
               name="privacidad"
@@ -169,8 +179,12 @@ function ContactSection() {
               .
             </label>
           </div>
+          <div className="flex items-start gap-3">
+            <input id="comunicaciones-comerciales" name="comunicacionesComerciales" type="checkbox" className="mt-1 h-4 w-4 shrink-0 rounded border-gray-300 text-[#1976d2] focus:ring-[#1976d2]" />
+            <label htmlFor="comunicaciones-comerciales" className="text-sm text-gray-600 leading-snug">Deseo recibir por medios electrónicos información comercial sobre los servicios de KUVU.</label>
+          </div>
 
-          {status === 'error' && (
+              {status === 'error' && (
             <p className="text-sm text-red-600" role="alert">
               {FORMSPREE_ID === 'TU_ID'
                 ? 'Configura VITE_FORMSPREE_ID en tu entorno con el ID de tu formulario Formspree.'
@@ -190,24 +204,32 @@ function ContactSection() {
 
           <p className="mx-auto mt-4 max-w-xl px-1 text-center text-sm leading-relaxed text-gray-600">
             ¿Prefieres hablar directamente? Escríbenos por{' '}
-            <a
-              href={WHATSAPP_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => handleWhatsAppClick('contact_form_plan_b')}
-              className="font-medium text-[#1565c0] underline decoration-[#1565c0]/25 underline-offset-2 transition hover:text-[#0d47a1] hover:decoration-[#0d47a1]/35"
+            <button
+              type="button"
+              ref={whatsAppTriggerRef}
+              onClick={() => setWhatsAppDialogOpen(true)}
+              className="cursor-pointer border-0 bg-transparent p-0 font-medium text-[#1565c0] underline decoration-[#1565c0]/25 underline-offset-2 transition hover:text-[#0d47a1] hover:decoration-[#0d47a1]/35"
             >
               WhatsApp
-            </a>
+            </button>
             .
           </p>
         </form>
+        <WhatsAppPrivacyDialog
+          open={whatsAppDialogOpen}
+          onClose={() => setWhatsAppDialogOpen(false)}
+          returnFocusRef={whatsAppTriggerRef}
+          whatsappUrl={WHATSAPP_LINK}
+        />
       </div>
     </section>
   );
 }
 
 export default function Landing() {
+  const [whatsAppDialogOpen, setWhatsAppDialogOpen] = useState(false);
+  const whatsAppTriggerRef = useRef<HTMLButtonElement>(null);
+
   return (
     <div className="min-h-screen font-sans text-gray-900 relative">
       {/* Header / Navbar — solo logo; contacto WhatsApp vía botón flotante */}
@@ -455,7 +477,7 @@ export default function Landing() {
                   aria-label="Instagram de Kuvu"
                   className="text-gray-500 hover:text-[#E1306C] transition-colors duration-200"
                 >
-                  <FaInstagram className="w-7 h-7" />
+                  <FaInstagram size={28} />
                 </a>
               </div>
             </div>
@@ -486,11 +508,6 @@ export default function Landing() {
                     Política de privacidad
                   </Link>
                 </li>
-                <li>
-                  <Link to="/politica-cookies" className="transition-colors hover:text-gray-300">
-                    Política de cookies
-                  </Link>
-                </li>
               </ul>
             </div>
           </div>
@@ -502,16 +519,21 @@ export default function Landing() {
       </footer>
 
       {/* Botón flotante WhatsApp */}
-      <a
-        href={WHATSAPP_LINK}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={() => handleWhatsAppClick('floating')}
+      <button
+        type="button"
+        ref={whatsAppTriggerRef}
+        onClick={() => setWhatsAppDialogOpen(true)}
         className="kuvu-float-whatsapp fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg ring-4 ring-white/90 transition-[bottom,transform] duration-300 ease-out hover:bg-[#20bd5a] sm:bottom-8 sm:right-8"
         aria-label="Abrir WhatsApp"
       >
         <MessageCircle className="h-7 w-7" aria-hidden />
-      </a>
+      </button>
+      <WhatsAppPrivacyDialog
+        open={whatsAppDialogOpen}
+        onClose={() => setWhatsAppDialogOpen(false)}
+        returnFocusRef={whatsAppTriggerRef}
+        whatsappUrl={WHATSAPP_LINK}
+      />
     </div>
   );
 }

@@ -1,214 +1,25 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import { LegalPageLayout } from './LegalPageLayout';
 import { LEGAL_SITE_DATA } from './legalSiteData';
 
-export default function PoliticaPrivacidadPage() {
-  const d = LEGAL_SITE_DATA;
+const d = LEGAL_SITE_DATA;
 
+export default function PoliticaPrivacidadPage() {
   return (
     <LegalPageLayout title="Política de privacidad">
-      <p className="text-gray-600">
-        <strong>Última actualización:</strong> {d.ultimaActualizacion}. Tratamiento de datos personales conforme al
-        Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018, de Protección de Datos Personales y garantía de los
-        derechos digitales (LOPDGDD).
-      </p>
-
-      <section className="space-y-3">
-        <h2>1. Responsable del tratamiento</h2>
-        <ul className="list-inside list-disc space-y-1.5">
-          <li>
-            <strong>Identidad:</strong> {d.razonSocial} (en adelante, «{d.nombreComercial}» o el «responsable»)
-          </li>
-          <li>
-            <strong>NIF:</strong> {d.nif}
-          </li>
-          <li>
-            <strong>Domicilio:</strong> {d.direccion}, {d.ciudad}
-          </li>
-          <li>
-            <strong>Correo electrónico:</strong> <a href={`mailto:${d.emailContacto}`}>{d.emailContacto}</a>
-          </li>
-        </ul>
-      </section>
-
-      <section className="space-y-3">
-        <h2>2. Origen y categorías de datos</h2>
-        <p>
-          Tratamos los datos que nos facilite directamente a través del sitio web, así como los generados por el uso de
-          herramientas de terceros descritas más adelante.
-        </p>
-        <p>
-          <strong>Formulario de contacto</strong> (sección «¿Hablamos?» en la página principal): mediante envío a través
-          del servicio Formspree, recabamos los siguientes campos tal como están definidos en la aplicación web:
-        </p>
-        <ul className="list-inside list-disc space-y-1.5">
-          <li>
-            <strong>centro</strong> (obligatorio): nombre del centro educativo o empresa de catering.
-          </li>
-          <li>
-            <strong>email</strong> (obligatorio): dirección de correo electrónico de contacto profesional.
-          </li>
-          <li>
-            <strong>tel</strong> (opcional): número de teléfono, si lo indica.
-          </li>
-          <li>
-            <strong>mensaje</strong> (opcional): texto libre con la consulta o comentario.
-          </li>
-        </ul>
-        <p>
-          El envío del formulario solo es posible si marca la casilla de aceptación de esta política de privacidad
-          (consentimiento informado).
-        </p>
-        <p>
-          <strong>Página de agradecimiento (/gracias):</strong> tras un envío correcto del formulario, el navegador puede
-          almacenar en <strong>sessionStorage</strong> (clave técnica <code className="rounded bg-gray-100 px-1 py-0.5 text-xs">kuvu_thank_you_ok</code>) un
-          valor que solo indica que puede mostrarse la página de confirmación; no incluye datos personales identificativos
-          en ese almacenamiento.
-        </p>
-        <p>
-          <strong>Agendado de demostraciones (Calendly):</strong> en la página de agradecimiento puede mostrarse un
-          widget incrustado de Calendly, LLC (Estados Unidos). Si reserva una cita, los datos necesarios para la reserva
-          (nombre, correo, franja horaria, etc.) son tratados por Calendly como responsable o encargado según la
-          configuración de su cuenta; le aplican la{' '}
-          <a href="https://calendly.com/privacy" target="_blank" rel="noopener noreferrer">
-            política de privacidad de Calendly
-          </a>
-          . {d.nombreComercial} utiliza el embed para facilitar la concertación de demos; puede recibir notificaciones
-          de la cita según la configuración de Calendly.
-        </p>
-        <p>
-          <strong>WhatsApp:</strong> los enlaces a WhatsApp (Meta Platforms Ireland Ltd. / WhatsApp LLC) abren la
-          aplicación o web de WhatsApp con un mensaje predefinido; al usarlo, se aplican las condiciones y privacidad de
-          WhatsApp.
-        </p>
-      </section>
-
-      <section className="space-y-3">
-        <h2>3. Finalidades y bases legales</h2>
-        <ul className="list-inside list-disc space-y-2">
-          <li>
-            <strong>Atender solicitudes de información y contacto comercial</strong> (base: art. 6.1.b RGPD — medidas
-            precontractuales o interés legítimo en responder consultas B2B; o 6.1.a si se solicita consentimiento
-            explícito para comunicaciones comerciales).
-          </li>
-          <li>
-            <strong>Organizar demostraciones del software</strong> (incluida la reserva mediante Calendly): base 6.1.b RGPD
-            o 6.1.a según el caso.
-          </li>
-          <li>
-            <strong>Medición de audiencia y campañas</strong> mediante Meta Pixel (Facebook) y LinkedIn Insight Tag (base:
-            6.1.a RGPD — consentimiento cuando las cookies o identificadores no sean estrictamente necesarios; o 6.1.f RGPD
-            interés legítimo si se limita a mediciones agregadas con garantías, según configuración).
-          </li>
-          <li>
-            <strong>Cumplimiento de obligaciones legales</strong> (art. 6.1.c RGPD).
-          </li>
-        </ul>
-        <p>
-          El sitio incorpora un <strong>banner de cookies</strong>: los proveedores Meta (Pixel) y LinkedIn (Insight Tag)
-          solo reciben datos derivados de su visita si usted acepta; la preferencia se guarda en{' '}
-          <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-xs">localStorage</code> (clave{' '}
-          <code className="text-xs">kuvu_cookie_consent</code>; valores <code className="text-xs">all</code> o{' '}
-          <code className="text-xs">essential</code>). Si elige solo esenciales, esos scripts no se ejecutan.
-        </p>
-      </section>
-
-      <section className="space-y-3">
-        <h2>4. Destinatarios y encargos del tratamiento</h2>
-        <p>Para la prestación del servicio web se utilizan, entre otros, los siguientes proveedores:</p>
-        <ul className="list-inside list-disc space-y-2">
-          <li>
-            <strong>Formspree, Inc.</strong> (Estados Unidos): recepción y reenvío del formulario de contacto a la cuenta
-            de correo configurada.{' '}
-            <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">
-              Política de privacidad de Formspree
-            </a>
-            . Pueden aplicarse transferencias internacionales con garantías adecuadas (cláusulas tipo de la Comisión
-            Europea u otras).
-          </li>
-          <li>
-            <strong>Calendly, LLC</strong> (Estados Unidos): widget de reserva de citas en la página /gracias.{' '}
-            <a href="https://calendly.com/privacy" target="_blank" rel="noopener noreferrer">
-              Privacidad de Calendly
-            </a>
-            .
-          </li>
-          <li>
-            <strong>Meta Platforms Ireland Ltd.</strong> (Meta Pixel): medición y publicidad en función de la
-            configuración del píxel. Identificador de píxel instalado en el sitio:{' '}
-            <span className="whitespace-nowrap font-mono text-xs">406711755248824</span>.{' '}
-            <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener noreferrer">
-              Política de privacidad de Meta
-            </a>
-            .
-          </li>
-          <li>
-            <strong>LinkedIn Corporation / LinkedIn Ireland</strong> (Insight Tag, partner ID{' '}
-            <span className="font-mono text-xs">9904737</span>): analítica y remarketing según la configuración de la
-            campaña.{' '}
-            <a href="https://www.linkedin.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">
-              Privacidad de LinkedIn
-            </a>
-            .
-          </li>
-          <li>
-            <strong>Proveedor de hosting</strong> (p. ej. Vercel u otro): alojamiento del código estático de la SPA y
-            entrega de contenidos. Los datos de tráfico y de acceso se tratarán según la política del proveedor
-            contratado.
-          </li>
-        </ul>
-        <p>
-          No vendemos sus datos personales. Solo cederemos información cuando exista obligación legal o contrato de
-          encargo del tratamiento (art. 28 RGPD) con los proveedores indicados.
-        </p>
-      </section>
-
-      <section className="space-y-3">
-        <h2>5. Plazos de conservación</h2>
-        <p>
-          Los datos del formulario se conservarán el tiempo necesario para atender la solicitud y para la relación
-          comercial posterior, y en todo caso durante los plazos legales aplicables. Los registros derivados de
-          herramientas de analítica (Meta, LinkedIn) se regirán por los plazos de cada plataforma y por la configuración
-          de su cuenta publicitaria.
-        </p>
-      </section>
-
-      <section className="space-y-3">
-        <h2>6. Derechos del interesado</h2>
-        <p>
-          Puede ejercer los derechos de acceso, rectificación, supresión, limitación, oposición, portabilidad y retirada
-          del consentimiento escribiendo a{' '}
-          <a href={`mailto:${d.emailContacto}`}>{d.emailContacto}</a>, indicando el derecho que ejerce y acreditando su
-          identidad. También puede presentar reclamación ante la Agencia Española de Protección de Datos (
-          <a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">
-            www.aepd.es
-          </a>
-          ).
-        </p>
-      </section>
-
-      <section className="space-y-3">
-        <h2>7. Centros educativos y datos de menores</h2>
-        <p>
-          Cuando el interesado sea un centro educativo o representante de una empresa de catering, los datos tratados
-          son de carácter profesional. Si en el mensaje o en el proceso de demo se incluyeran datos de menores o
-          categorías especiales, el tratamiento deberá cumplir la normativa educativa y de protección de datos aplicable;
-          {d.nombreComercial} actúa como responsable de los datos recabados a través de este sitio web en la medida en
-          que corresponda.
-        </p>
-      </section>
-
-      <section className="space-y-3">
-        <h2>8. Medidas de seguridad</h2>
-        <p>
-          Se aplican medidas técnicas y organizativas apropiadas para garantizar un nivel de seguridad adecuado al
-          riesgo (art. 32 RGPD), incluido el uso de conexión cifrada (HTTPS) cuando el proveedor de hosting lo permita.
-        </p>
-      </section>
+      <section className="space-y-3"><h2>1. Identificación del responsable del tratamiento</h2><p>De conformidad con el Reglamento (UE) 2016/679, General de Protección de Datos (RGPD), y con la Ley Orgánica 3/2018, de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD), se informa de que los datos personales tratados a través del sitio web son responsabilidad de:</p><ul className="list-inside list-disc space-y-1.5"><li><strong>Responsable:</strong> {d.razonSocial}</li><li><strong>NIF:</strong> {d.nif}</li><li><strong>Domicilio:</strong> {d.direccion}</li><li><strong>Correo electrónico:</strong> <a href={`mailto:${d.emailContacto}`}>{d.emailContacto}</a></li></ul></section>
+      <section className="space-y-3"><h2>2. Principios generales de privacidad</h2><p>KUVU tratará los datos personales de forma lícita, leal y transparente, de acuerdo con las siguientes reglas:</p><ul className="list-inside list-disc space-y-1.5"><li>Los datos se recogerán para finalidades determinadas, explícitas y legítimas y no se utilizarán de forma incompatible con ellas.</li><li>Se solicitarán únicamente los datos adecuados, pertinentes y necesarios para cada funcionalidad.</li><li>Los datos deberán ser exactos y mantenerse actualizados. La persona usuaria deberá comunicar cualquier modificación relevante.</li><li>Los datos se conservarán únicamente durante el tiempo necesario y, cuando proceda, permanecerán bloqueados durante los plazos legales aplicables.</li><li>Se aplicarán medidas técnicas y organizativas adecuadas para preservar su confidencialidad, integridad, disponibilidad y resiliencia.</li><li>Se aplicarán los principios de protección de datos desde el diseño y por defecto.</li></ul></section>
+      <section className="space-y-3"><h2>3. Datos tratados y procedencia</h2><p>Los datos se obtienen directamente de las personas que facilitan la información a través del formulario «¿Hablamos?» del sitio web.</p><p>A través de dicho formulario podrán tratarse las siguientes categorías:</p><ul className="list-inside list-disc space-y-1.5"><li>Datos identificativos y de contacto: nombre del centro o empresa de catering, correo electrónico y teléfono.</li><li>Datos incluidos en la consulta o mensaje remitido a través del formulario.</li><li>Datos relativos al consentimiento para comunicaciones electrónicas: constancia de la aceptación cuando la persona marque voluntariamente la casilla habilitada a tal efecto.</li></ul></section>
+      <section className="space-y-3"><h2>4. Finalidades y bases jurídicas de los tratamientos</h2><p>KUVU realiza los siguientes tratamientos de datos personales:</p><h3 className="font-semibold text-gray-800">8.1. Contacto</h3><p><strong>Finalidad:</strong> atender las solicitudes de información, contacto o demostración remitidas a través del formulario.</p><p><strong>Base jurídica:</strong> aplicación de medidas precontractuales a petición de la persona interesada (art. 6.1.b RGPD).</p><h3 className="font-semibold text-gray-800">8.2. Comunicaciones por vía electrónica</h3><p><strong>Finalidad:</strong> enviar información, novedades, contenidos y comunicaciones relacionadas con KUVU por vía electrónica.</p><p><strong>Base jurídica:</strong> consentimiento de la persona interesada (art. 6.1.a RGPD y art. 21 LSSI). El consentimiento es voluntario y puede retirarse en cualquier momento mediante el mecanismo de baja incluido en las comunicaciones o escribiendo a privacidad@kuvuapp.com.</p></section>
+      <section className="space-y-3"><h2>5. Destinatarios y encargados del tratamiento</h2><p>Los datos no se comunicarán a terceros salvo obligación legal o cuando resulte necesario para atender la solicitud formulada por la persona interesada.</p><p>También podrán acceder a los datos, por cuenta de KUVU, los proveedores que actúen como encargados del tratamiento y resulten necesarios para la gestión del sitio web, del formulario de contacto o de las comunicaciones electrónicas. Estos proveedores tratarán los datos conforme a las instrucciones de la responsable y a los contratos exigidos por el artículo 28 RGPD.</p></section>
+      <section className="space-y-3"><h2>6. Transferencias internacionales de datos</h2><p>En caso de que alguno de los proveedores utilizados implique una transferencia internacional de datos fuera del Espacio Económico Europeo, esta se realizará únicamente cuando exista una garantía válida conforme al RGPD.</p><p>Puede solicitar información adicional sobre las garantías aplicadas escribiendo a <a href="mailto:privacidad@kuvuapp.com">privacidad@kuvuapp.com</a>.</p></section>
+      <section className="space-y-3"><h2>7. Plazos de conservación</h2><p>Los datos se conservarán durante el tiempo necesario para cumplir la finalidad para la que fueron recogidos y, posteriormente, permanecerán bloqueados durante los plazos de prescripción de las posibles responsabilidades. En particular:</p><ul className="list-inside list-disc space-y-1.5"><li><strong>Contacto:</strong> los datos se conservarán durante el tiempo necesario para atender y gestionar la solicitud y, posteriormente, permanecerán bloqueados durante los plazos de prescripción de las posibles responsabilidades (6 meses)</li><li><strong>Comunicaciones por vía electrónica:</strong> los datos se conservarán hasta que la persona retire su consentimiento o solicite la baja. Sin perjuicio de lo anterior, se eliminarán transcurridos 2 años desde la última interacción con el usuario.</li></ul></section>
+      <section className="space-y-3"><h2>8. Carácter obligatorio de los datos</h2><p>Los campos señalados como obligatorios en el formulario son necesarios para poder atender la solicitud de contacto. La casilla relativa al envío de comunicaciones por vía electrónica es opcional y su no aceptación no impedirá el envío ni la atención de la consulta.</p></section>
+      <section className="space-y-3"><h2>9. Derechos de las personas interesadas</h2><p>Las personas interesadas pueden ejercer los derechos reconocidos por la normativa de protección de datos.</p><table className="w-full border-collapse text-left text-sm"><thead className="bg-gray-50 text-gray-800"><tr><th className="border border-gray-200 p-2">Sus derechos</th><th className="border border-gray-200 p-2">¿Qué significa?</th></tr></thead><tbody><tr><th className="border border-gray-200 p-2">Derecho de información</th><td className="border border-gray-200 p-2">Tiene derecho a que se le presente la información clara, concisa, transparente y fácil de entender sobre la forma en que usamos sus datos personales y sobre sus derechos.</td></tr><tr><th className="border border-gray-200 p-2">Derecho de acceso</th><td className="border border-gray-200 p-2">Tiene derecho a acceder a los datos personales que tenemos de usted (con ciertos límites).Las solicitudes manifiestamente infundadas, excesivas o repetitivas podrán no ser atendidas.</td></tr><tr><th className="border border-gray-200 p-2">Derecho de rectificación</th><td className="border border-gray-200 p-2">Tiene derecho a hacer que se rectifiquen sus datos personales cuando sean inexactos o hayan dejado de ser válidos o a hacer que se completen cuando sean incompletos.</td></tr><tr><th className="border border-gray-200 p-2">Derecho de supresión / derecho al olvido</th><td className="border border-gray-200 p-2">En determinados casos, le corresponde el derecho a solicitar que sus datos personales sean borrados o eliminados. Es preciso señalar que no se trata de un derecho absoluto, puesto que podremos tener motivos legales o legítimos para conservarlos.</td></tr><tr><th className="border border-gray-200 p-2">Derecho de oposición a recibir publicidad</th><td className="border border-gray-200 p-2">Puede darse de baja de nuestras comunicaciones de marketing en cualquier momento.La forma más sencilla para poder de darse de baja es haciendo clic sobre el enlace “baja” en cualquier correo electrónico o comunicación que le enviemos. También puede enviarnos un correo electrónico a privacidad@kuvuapp.com</td></tr><tr><th className="border border-gray-200 p-2">Derecho a retirar el consentimiento en cualquier momento cuando el tratamiento de datos esté basado en el consentimiento</th><td className="border border-gray-200 p-2">En el caso de que se haya otorgado el consentimiento para alguna de las finalidades informadas y determinadas en los tratamientos a los que hacemos referencia, le informamos que tiene derecho a retirar el consentimiento en cualquier momento, sin que ello afecte a la legalidad del tratamiento basado en el consentimiento previo a su retirada.</td></tr><tr><th className="border border-gray-200 p-2">Derecho de oposición al tratamiento basado en la satisfacción de intereses legítimos</th><td className="border border-gray-200 p-2">Puede oponerse en cualquier momento a que tratemos sus datos cuando el tratamiento esté basado en la satisfacción de intereses legítimos.</td></tr><tr><th className="border border-gray-200 p-2">Derecho a presentar una reclamación ante una autoridad de control</th><td className="border border-gray-200 p-2">Asimismo, le informamos que cuando no haya obtenido satisfacción en el ejercicio de sus derechos o la forma de ejercerlos, podrá presentar una reclamación ante la Autoridad de Control. Si quiere conocer más información sobre este derecho y como ejercerlo puede dirigirse a la Agencia Española de Protección de Datos, www.aepd.es, teléfono 900 293 183, Edificio Cuzco IV, Paseo de la Castellana, 141, planta 9, 28046 Madrid.</td></tr><tr><th className="border border-gray-200 p-2">Derecho a la portabilidad de los datos</th><td className="border border-gray-200 p-2">Tiene derecho a recibir los datos personales que le incumban y que nos haya facilitado en un formato estructurado, de uso común y lectura mecánica, para poder transmitirlos a otro responsable del tratamiento, cuando el tratamiento esté basado en la ejecución de un contrato o en su consentimiento y el tratamiento se realice por medios automatizados.</td></tr><tr><th className="border border-gray-200 p-2">Derecho de limitación del tratamiento</th><td className="border border-gray-200 p-2">Tiene derecho a obtener la limitación del tratamiento de sus datos, si bien su ejercicio presenta dos vertientes:Puede solicitar la suspensión del tratamiento de sus datos:- Cuando impugne la exactitud de sus datos personales, durante un plazo que permita al responsable su verificación.- Cuando se haya opuesto al tratamiento de los datos personales que el responsable realiza en base al interés legítimo o misión de interés público, mientras aquel verifica si estos motivos prevalecen sobre los suyos.Solicitar al responsable la conservación de sus datos:- Cuando el tratamiento sea ilícito y se has opuesto a la supresión de sus datos y en su lugar solicita la limitación de su uso.- Cuando el responsable ya no necesite los datos personales para los fines del tratamiento, pero el interesado los necesite para la formulación, el ejercicio o la defensa de reclamaciones.</td></tr></tbody></table></section>
+      <section className="space-y-3"><h2>10. Cómo ejercer los derechos</h2><p>Puede ejercer sus derechos enviando una solicitud a privacidad@kuvuapp.com, indicando en el asunto «Protección de datos - Ejercicio de derechos» y especificando el derecho que desea ejercer. Cuando sea necesario para verificar la identidad o la representación, se solicitará información adicional proporcionada a esa finalidad.</p></section>
+      <section className="space-y-3"><h2>11. Reclamación ante la autoridad de control</h2><p>Si considera que el tratamiento de datos personales infringe la normativa o no ha obtenido satisfacción en el ejercicio de sus derechos, puede presentar una reclamación ante la Agencia Española de Protección de Datos:</p><ul className="list-inside list-disc space-y-1.5"><li>Dirección postal: Agencia Española de Protección de Datos, Edificio Cuzco IV, Paseo de la Castellana, 141, planta 9, 28046 Madrid.</li><li>Teléfono de información general: 900 293 183.</li><li>Sitio web y sede electrónica: www.aepd.es.</li></ul></section>
+      <section className="space-y-3"><h2>12. Seguridad</h2><p>KUVU aplica medidas técnicas y organizativas apropiadas al riesgo, de acuerdo con el artículo 32 RGPD, para preservar la confidencialidad, integridad y disponibilidad de los datos personales y prevenir accesos, alteraciones, pérdidas o comunicaciones no autorizadas.</p></section>
+      <section className="space-y-3"><h2>13. Modificaciones de la política</h2><p>KUVU podrá actualizar esta Política de Privacidad para adaptarla a cambios normativos, técnicos o funcionales. La versión vigente será la publicada en el sitio web. Cuando el cambio sea relevante para un tratamiento basado en el consentimiento, se solicitará nuevamente cuando resulte necesario.</p></section>
+      <p><strong>Última actualización:</strong> septiembre de 2026</p>
     </LegalPageLayout>
   );
 }

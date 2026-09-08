@@ -65,10 +65,6 @@ export function LegalPageLayout({ title, children }: Props) {
             <Link to="/politica-privacidad" className="text-gray-500 hover:text-gray-700">
               Privacidad
             </Link>
-            {' · '}
-            <Link to="/politica-cookies" className="text-gray-500 hover:text-gray-700">
-              Cookies
-            </Link>
           </p>
         </footer>
       </main>

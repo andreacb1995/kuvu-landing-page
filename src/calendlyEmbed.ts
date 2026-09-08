@@ -33,26 +33,12 @@ export function loadCalendlyScript(): Promise<void> {
   });
 }
 
-/** Añade parámetros oficiales del embed para menos cabecera y sin banner GDPR en el iframe. */
-export function appendCalendlyEmbedQueryParams(url: string): string {
-  const trimmed = url.trim();
-  if (!trimmed) return trimmed;
-  try {
-    const u = new URL(trimmed);
-    u.searchParams.set('hide_landing_page_details', '1');
-    u.searchParams.set('hide_gdpr_banner', '1');
-    return u.toString();
-  } catch {
-    return trimmed;
-  }
-}
-
 /**
  * `initInlineWidget`: el contenedor en React tiene `height: 700px`; el iframe llena con height/width 100%.
  */
 export function getCalendlyInlineWidgetOptions(parentElement: HTMLElement, baseUrl: string) {
   return {
-    url: appendCalendlyEmbedQueryParams(baseUrl),
+    url: baseUrl.trim(),
     parentElement,
     styles: {
       height: '100%',
