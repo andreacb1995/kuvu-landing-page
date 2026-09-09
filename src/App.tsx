@@ -4,11 +4,13 @@ import ThankYou from './ThankYou';
 import AvisoLegalPage from './legal/AvisoLegalPage';
 import PoliticaPrivacidadPage from './legal/PoliticaPrivacidadPage';
 import { ScrollToTop } from './ScrollToTop';
+import { RouteMetadata } from './seo/RouteMetadata';
 
 export default function App() {
   return (
     <>
       <ScrollToTop />
+      <RouteMetadata />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/gracias" element={<ThankYou />} />

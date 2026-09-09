@@ -199,7 +199,7 @@ function ContactSection() {
               disabled={status === 'loading'}
               className={`${ctaPrimaryOnLightClass} w-full max-w-full sm:max-w-xl sm:mx-auto disabled:cursor-not-allowed disabled:opacity-65 disabled:hover:bg-[#ffc107] disabled:hover:shadow-md disabled:hover:ring-amber-300/70`}
             >
-              {status === 'loading' ? 'ENVIANDO…' : 'Solicitar información y sesión gratuita'}
+              {status === 'loading' ? 'ENVIANDO…' : 'Solicitar información'}
             </button>
           </div>
 
@@ -271,17 +271,16 @@ export default function Landing() {
       {/* Hero Section */}
       <section className="bg-[#1976d2] text-white pt-32 pb-8 sm:pt-36 sm:pb-14 lg:pt-44 lg:pb-24 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-6 sm:gap-10 lg:grid-cols-2 lg:gap-12 lg:items-start">
+          <div className="grid grid-cols-1 gap-6 sm:gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-10 lg:items-start">
             <div className="order-1 flex min-w-0 flex-col">
-              <div className="flex flex-col gap-8 sm:gap-10 lg:gap-12">
+              <div className="flex flex-col gap-8 sm:gap-10 lg:gap-8">
                 <div className="w-full min-w-0">
-                  <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tighter text-balance leading-tight sm:leading-tight">
-                    Software de Gestión Integral para Comedores, Caterings y Centros Educativos
+                  <h1 className="text-3xl sm:text-5xl lg:text-5xl font-extrabold tracking-tighter text-balance leading-tight sm:leading-tight">
+                    Software de gestión de comedor escolar para ANPAs, centros educativos y empresas de catering
                   </h1>
                 </div>
                 <p className="text-base sm:text-xl text-blue-100 max-w-xl leading-normal md:leading-relaxed">
-                  La plataforma todo en uno que elimina el caos administrativo y profesionaliza la comunicación entre
-                  familias, centros y cocina.
+                  Centraliza inscripciones, ausencias, consumos y facturación en una única plataforma para simplificar la gestión diaria del comedor escolar.
                 </p>
 
                 <div>
@@ -289,19 +288,20 @@ export default function Landing() {
                     <li className="flex items-center space-x-3">
                       <CheckCircle className="w-6 h-6 text-[#ffc107] flex-shrink-0" />
                       <span className="text-blue-50 font-medium text-base sm:text-lg">
-                        Adiós al caos de las listas de Excel y el papel
+                        Sustituye hojas de cálculo y procesos en papel
                       </span>
                     </li>
                     <li className="flex items-center space-x-3">
                       <CheckCircle className="w-6 h-6 text-[#ffc107] flex-shrink-0" />
                       <span className="text-blue-50 font-medium text-base sm:text-lg">
-                        Comunicación en tiempo real sin errores
+                        Mantén actualizada la información de familias, centros y cocina
                       </span>
                     </li>
                     <li className="flex items-center space-x-3">
                       <CheckCircle className="w-6 h-6 text-[#ffc107] flex-shrink-0" />
                       <span className="text-blue-50 font-medium text-base sm:text-lg">
-                        Facturación automática basada en el consumo real                      </span>
+                        Genera la facturación a partir de los servicios registrados
+                      </span>
                     </li>
                   </ul>
                 </div>
@@ -309,7 +309,7 @@ export default function Landing() {
 
               <div className="mt-8 sm:mt-10">
                 <a href="#contacto" className={`${ctaPrimaryClass} normal-case w-full sm:w-auto`}>
-                  Solicitar información y sesión gratuita
+                  Solicitar información
                 </a>
               </div>
             </div>
@@ -321,7 +321,11 @@ export default function Landing() {
               />
               <img
                 src="/mockups-colegios.png"
-                alt="Kuvu: software de gestión para comedores escolares, caterings y centros educativos"
+                alt="Kuvu: gestión de servicios escolares para ANPAs y centros educativos"
+                width={1080}
+                height={1080}
+                fetchPriority="high"
+                decoding="async"
                 className="relative z-10 h-auto max-h-[min(400px,70vh)] w-full max-w-md object-contain sm:max-h-[500px] lg:max-h-[600px] lg:max-w-none lg:-translate-y-1 drop-shadow-2xl transition-transform duration-700 ease-out hover:scale-105"
               />
             </div>
@@ -473,7 +477,7 @@ export default function Landing() {
             href="#contacto"
             className={`${ctaPrimaryOnDarkStripClass} normal-case w-full sm:inline-flex sm:w-auto`}
           >
-            Solicitar información y sesión gratuita
+            Solicitar información
           </a>
         </div>
       </section>
@@ -508,7 +512,7 @@ export default function Landing() {
             </div>
 
             <div className="md:pt-14">
-              <h4 className="text-white font-semibold mb-4 uppercase tracking-wider text-sm">Contacto</h4>
+              <h2 className="text-white font-semibold mb-4 uppercase tracking-wider text-sm">Contacto</h2>
               <ul className="space-y-3 text-sm">
                 <li>
                   <a href="mailto:hola@kuvuapp.com" className={footerContactLinkClass}>
@@ -521,7 +525,7 @@ export default function Landing() {
             </div>
 
             <div className="md:text-right md:pt-14">
-              <h4 className="text-white font-semibold mb-4 uppercase tracking-wider text-sm">Legal</h4>
+              <h2 className="text-white font-semibold mb-4 uppercase tracking-wider text-sm">Legal</h2>
               <ul className="space-y-2.5 text-xs text-gray-500">
                 <li>
                   <Link to="/aviso-legal" className="transition-colors hover:text-gray-300">
