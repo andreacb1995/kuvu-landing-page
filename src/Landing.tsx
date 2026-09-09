@@ -262,7 +262,7 @@ export default function Landing() {
             >
               <UserRound className="h-4 w-4" aria-hidden />
               <span className="md:hidden">Entrar</span>
-              <span className="hidden md:inline">Acceso clientes</span>
+              <span className="hidden md:inline">Acceso</span>
             </a>
           </nav>
         </div>
