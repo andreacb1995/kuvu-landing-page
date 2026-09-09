@@ -15,6 +15,7 @@ import {
   Sparkles,
   ShieldCheck,
   MessageCircle,
+  UserRound,
 } from 'lucide-react';
 import { THANK_YOU_SESSION_KEY, WHATSAPP_LINK } from './constants';
 import { WhatsAppPrivacyDialog } from './components/WhatsAppPrivacyDialog';
@@ -232,14 +233,38 @@ export default function Landing() {
 
   return (
     <div className="min-h-screen font-sans text-gray-900 relative">
-      {/* Header / Navbar — solo logo; contacto WhatsApp vía botón flotante */}
+      {/* Header / Navbar */}
       <header className="absolute top-0 left-0 right-0 z-20 pt-3 sm:pt-4">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
           <img
             src="/kuvu-app-logo.png"
             alt="KUVU Logo"
-            className="mb-10 h-16 w-auto max-w-[min(100%,12rem)] shrink-0 object-contain sm:-ml-2 sm:h-20 sm:max-w-none md:h-28"
+            className="mb-10 h-16 w-auto max-w-32 shrink-0 object-contain sm:-ml-2 sm:h-20 sm:max-w-none md:h-28"
           />
+          <nav aria-label="Navegación principal" className="mb-10 flex shrink-0 items-center gap-5 lg:gap-7">
+            <div className="hidden items-center gap-5 md:flex lg:gap-7">
+              <a
+                href="#como-funciona"
+                className="text-sm font-semibold text-white/90 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+              >
+                Cómo funciona
+              </a>
+              <a
+                href="#contacto"
+                className="text-sm font-semibold text-white/90 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+              >
+                Contacto
+              </a>
+            </div>
+            <a
+              href="https://app.kuvuapp.com"
+              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl border border-white/70 bg-white/10 px-3 py-2 text-sm font-bold text-white shadow-sm backdrop-blur-sm transition-colors hover:bg-white hover:text-[#0d47a1] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:px-4 sm:py-2.5"
+            >
+              <UserRound className="h-4 w-4" aria-hidden />
+              <span className="md:hidden">Entrar</span>
+              <span className="hidden md:inline">Acceso clientes</span>
+            </a>
+          </nav>
         </div>
       </header>
 
@@ -305,7 +330,7 @@ export default function Landing() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 md:py-24 bg-white border-t border-gray-100">
+      <section id="como-funciona" className="scroll-mt-6 py-16 md:py-24 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
